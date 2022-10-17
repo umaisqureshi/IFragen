@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Bloc/RegisterBloc/bloc/register_bloc_bloc.dart';
-import 'package:ifragen/Repo/UserRepo/userRepo.dart';
+import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Auth/loginScreen.dart';
 import '../../Utilis/inputdecoration.dart';
 
@@ -23,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final _registerFormKey = GlobalKey<FormState>();
 // a-zA-Z0-9
   bool isValidEmail(String email) {
-    final emailRegExp = RegExp(r"^[a-zA-Z0-9.]+@[fau]+\.[a-zA-Z]+");
+    final emailRegExp = RegExp(r"^[a-zA-Z0-9.]+@[fau]+\.[de]+");
     return emailRegExp.hasMatch(email);
   }
 
@@ -99,6 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               );
             }
+
             if (state is UserCreatedState) {
               return AlertDialog(
                 title: Text(
@@ -129,6 +130,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ],
               );
             }
+
             return loading
                 ? Center(
                     child: CircularProgressIndicator(

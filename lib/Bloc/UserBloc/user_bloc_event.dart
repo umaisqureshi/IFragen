@@ -7,6 +7,9 @@ abstract class UserBlocEvent extends Equatable {
 
 //user check event
 class UserCheckEvent extends UserBlocEvent {
+  final String email;
+  final String password;
+  const UserCheckEvent(this.email, this.password);
   @override
   List<Object?> get props => [];
 }

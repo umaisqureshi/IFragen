@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:ifragen/Models/userModel.dart';
+import 'package:ifragen/Helper/helper.dart';
+import 'package:ifragen/Models/userRegisterModel.dart';
 
-import '../../../Repo/UserRepo/userRepo.dart';
+import '../../../Repo/userRepo.dart';
 
 part 'register_bloc_event.dart';
 part 'register_bloc_state.dart';
@@ -21,8 +22,12 @@ class RegisterBloc extends Bloc<RegisterBlocEvent, RegisterBlocState> {
           try {
             final UserModel user = await userRepo.registerUser(
                 event.email, event.password, event.name);
+            await HelperClass.saveUserEmailSF(user.user.email);
+            await HelperClass.saveUserNameSF(user.user.name);
+            await HelperClass.saveUserLoggedInStatus(true);
             emit(UserCreatedState(user));
           } catch (e) {
+            print(e.toString());
             emit(RegisterErrorState(e.toString()));
           }
         }

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Repo/UserRepo/userRepo.dart';
-import 'package:ifragen/Screens/Auth/loginScreen.dart';
+import 'package:ifragen/Repo/userRepo.dart';
+import 'package:ifragen/Screens/Home/home.dart';
+
 import 'package:ifragen/Screens/Splash/splashScreen.dart';
+
+import 'Helper/helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,8 +20,32 @@ void main() {
   ], child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool _isSignedIn = false;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserLoggedInStatus();
+  }
+
+  getUserLoggedInStatus() async {
+    await HelperClass.getUserLoggedInStatus().then((value) {
+      if (value != null) {
+        setState(() {
+          _isSignedIn = value;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,7 +61,7 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               titleTextStyle: GoogleFonts.nunito(
                   color: Theme.of(context).primaryColor, fontSize: 25))),
-      home: const SplashScreen(),
+      home: _isSignedIn ? const Home() : const SplashScreen(),
     );
   }
 }
