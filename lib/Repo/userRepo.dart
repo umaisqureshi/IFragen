@@ -12,15 +12,17 @@ class UserRepo {
         body: {'email': email, 'password': password});
     if (response.statusCode == 200 || response.statusCode == 201) {
       final result = jsonDecode(response.body);
-     
+      print(response.body);
       return userLoginModelFromJson(result);
     } else {
+      print(response.reasonPhrase);
       throw Exception(response.reasonPhrase);
     }
   }
 
   Future<UserModel> registerUser(
       String email, String password, String name) async {
+    print(email + password + name);
     Response response = await post(Uri.parse(REGISTER_USER_API),
         body: {'email': email, 'password': password, 'name': name});
     if (response.statusCode == 200 || response.statusCode == 201) {
@@ -28,6 +30,7 @@ class UserRepo {
       print(response.body);
       return userModelFromJson(result);
     } else {
+      print(response.reasonPhrase);
       throw Exception(response.reasonPhrase);
     }
   }

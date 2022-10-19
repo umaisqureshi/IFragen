@@ -23,11 +23,12 @@ class UserLoginBloc extends Bloc<UserBlocEvent, UserBlocState> {
           try {
             final UserLoginModel user =
                 await userRepo.getUser(event.email, event.password);
-           await HelperClass.saveUserAccessToken(user.token.accessToken);
-           await HelperClass.saveUserRefreshToken(user.token.refreshToken);
-           await HelperClass.saveUserLoggedInStatus(true);
+            await HelperClass.saveUserAccessToken(user.token.accessToken);
+            await HelperClass.saveUserRefreshToken(user.token.refreshToken);
+            await HelperClass.saveUserLoggedInStatus(true);
             emit(UserLoadedState(user));
           } catch (e) {
+            print(e.toString());
             emit(UserErrorState(e.toString()));
           }
         }

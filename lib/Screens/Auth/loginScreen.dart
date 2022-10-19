@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:confetti/confetti.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
   String email = "";
   String password = "";
   bool loading = false;
+  // bool isPlaying = false;
+
   final _loginFormKey = GlobalKey<FormState>();
 
   bool isValidEmail(String email) {
@@ -40,31 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
           body: BlocConsumer<UserLoginBloc, UserBlocState>(
             listener: (context, state) {
               if (state is UserLoadedState) {
-                Timer(const Duration(seconds: 3), (() {
+                Timer(const Duration(seconds: 2), (() {
                   Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => const Home()));
                 }));
-
-                AlertDialog(
-                  elevation: 5,
-                  title: Text(
-                    "Welcome",
-                    style: GoogleFonts.nunito(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  content: Text(
-                    "Good to see you again",
-                    style: GoogleFonts.nunito(
-                        color: Theme.of(context).primaryColor.withOpacity(0.8),
-                        fontSize: 20,
-                        fontWeight: FontWeight.normal),
-                  ),
-                  backgroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                );
               }
             },
             builder: ((context, state) {
@@ -125,6 +107,27 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
+                );
+              } else if (state is UserLoadedState) {
+                return AlertDialog(
+                  elevation: 5,
+                  title: Text(
+                    "Welcome",
+                    style: GoogleFonts.nunito(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  content: Text(
+                    "Good to see you again",
+                    style: GoogleFonts.nunito(
+                        color: Theme.of(context).primaryColor.withOpacity(0.8),
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal),
+                  ),
+                  backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
                 );
               } else {
                 return SingleChildScrollView(

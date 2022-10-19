@@ -6,11 +6,11 @@ abstract class RegisterBlocEvent extends Equatable {
 
 //user create event
 class UserCreateEvent extends RegisterBlocEvent {
- final String email;
+  final String email;
   final String password;
   final String name;
 
-  const UserCreateEvent(this.email, this.name, this.password);
+  const UserCreateEvent(this.email, this.password, this.name);
   @override
   List<Object?> get props => [];
 }
