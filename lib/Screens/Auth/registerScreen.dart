@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -37,8 +39,43 @@ class _RegisterScreenState extends State<RegisterScreen> {
           RegisterBloc(RepositoryProvider.of<UserRepo>(context)),
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: BlocBuilder<RegisterBloc, RegisterBlocState>(
-              builder: ((context, state) {
+          body: BlocConsumer<RegisterBloc, RegisterBlocState>(
+              listener: (context, state) {
+            if (state is UserCreatedState) {
+              Timer(const Duration(seconds: 3), (() {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => const LoginScreen()));
+              }));
+              AlertDialog(
+                title: Text(
+                  "Congratulation",
+                  style: GoogleFonts.nunito(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                content: Text(
+                  "Kindly verify your email and login again",
+                  style: GoogleFonts.nunito(
+                      color: Theme.of(context).primaryColor.withOpacity(0.6),
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal),
+                ),
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                // actions: [
+                //   ElevatedButton(
+                //     onPressed: () {
+                //       Navigator.of(context).pushReplacement(MaterialPageRoute(
+                //           builder: ((context) => const LoginScreen())));
+                //     },
+                //     child: const Text("OKAY"),
+                //   ),
+                // ],
+              );
+            }
+          }, builder: ((context, state) {
             if (state is RegisterErrorState) {
               return Container(
                 height: double.infinity,
@@ -97,37 +134,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ],
                   ),
                 ),
-              );
-            }
-
-            if (state is UserCreatedState) {
-              return AlertDialog(
-                title: Text(
-                  "Congratulation",
-                  style: GoogleFonts.nunito(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-                content: Text(
-                  "Kindly verify your email and login again",
-                  style: GoogleFonts.nunito(
-                      color: Theme.of(context).primaryColor.withOpacity(0.6),
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal),
-                ),
-                backgroundColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30)),
-                actions: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: ((context) => const LoginScreen())));
-                    },
-                    child: const Text("OKAY"),
-                  ),
-                ],
               );
             }
 
