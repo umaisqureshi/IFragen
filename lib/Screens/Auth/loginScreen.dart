@@ -1,13 +1,12 @@
 import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Bloc/InternetBloc/internet_bloc_bloc.dart';
 import 'package:ifragen/Screens/Auth/registerScreen.dart';
-import 'package:ifragen/Screens/Home/home.dart';
-
+import 'package:ifragen/Screens/Auth/widgets/widgets.dart';
+import 'package:ifragen/Screens/Home/mainHome.dart';
 import '../../Bloc/UserBloc/user_bloc_bloc.dart';
 import '../../Repo/userRepo.dart';
 import '../../Utilis/inputdecoration.dart';
@@ -24,7 +23,6 @@ class _LoginScreenState extends State<LoginScreen> {
   String email = "";
   String password = "";
   bool loading = false;
-  // bool isPlaying = false;
 
   final _loginFormKey = GlobalKey<FormState>();
 
@@ -57,69 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (state is UserLoadedState) {
                     Timer(const Duration(seconds: 2), (() {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const Home()));
+                          builder: (context) => const MainHome()));
                     }));
                   }
                 },
                 builder: ((context, state) {
                   if (state is UserErrorState) {
-                    return Container(
-                      height: double.infinity,
-                      width: double.infinity,
-                      color: Theme.of(context).primaryColor,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "OOPS!",
-                              style: GoogleFonts.nunito(
-                                  color: Colors.white,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Text(
-                              state.error,
-                              // "InCorrect Email and Password",
-                              style: GoogleFonts.nunito(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 50,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Container(
-                                height: 60,
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(30),
-                                    )),
-                                child: Center(
-                                  child: Text(
-                                    "Back",
-                                    style: GoogleFonts.nunito(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
+                    return errorStateWidget(context, state);
                   } else if (state is UserLoadedState) {
                     return AlertDialog(
                       elevation: 5,

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Repo/userRepo.dart';
-import 'package:ifragen/Screens/Home/home.dart';
+import 'package:ifragen/Screens/Home/mainHome.dart';
 
 import 'package:ifragen/Screens/Splash/splashScreen.dart';
 
@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
               elevation: 0,
               titleTextStyle: GoogleFonts.nunito(
                   color: Theme.of(context).primaryColor, fontSize: 25))),
-      home: _isSignedIn ? const Home() : const SplashScreen(),
+      home: _isSignedIn ? const MainHome() : const SplashScreen(),
     );
   }
 }
