@@ -61,6 +61,4 @@ class HelperClass {
     SharedPreferences sf = await SharedPreferences.getInstance();
     return sf.getString(userNameKey);
   }
-
-
 }
