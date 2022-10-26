@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 class NoWifiWidget extends StatelessWidget {
   String msg;
+  Color color;
   NoWifiWidget({
     required this.msg,
+    required this.color,
     Key? key,
   }) : super(key: key);
 
@@ -24,7 +26,7 @@ class NoWifiWidget extends StatelessWidget {
                       "assets/wifi.png",
                     ),
                     fit: BoxFit.cover),
-                color: Colors.white,
+                // color: Colors.white,
                 borderRadius: BorderRadius.all(Radius.circular(40))),
           ),
         ),
@@ -34,7 +36,7 @@ class NoWifiWidget extends StatelessWidget {
         Text(
           msg,
           style: GoogleFonts.nunito(
-              color: Theme.of(context).primaryColor,
+              color: this.color,
               //color: Colors.white,
               fontSize: 22,
               fontWeight: FontWeight.bold),

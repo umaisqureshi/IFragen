@@ -48,7 +48,10 @@ class _LoginScreenState extends State<LoginScreen> {
           body: BlocBuilder<InternetBloc, InternetBlocState>(
             builder: (context, state) {
               if (state is InternetNotConnected) {
-                return NoWifiWidget(msg: state.msg);
+                return NoWifiWidget(
+                  msg: state.msg,
+                  color: Theme.of(context).primaryColor,
+                );
               }
               return BlocConsumer<UserLoginBloc, UserBlocState>(
                 listener: (context, state) {

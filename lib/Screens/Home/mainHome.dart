@@ -1,12 +1,15 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Screens/Auth/loginScreen.dart';
-import 'package:ifragen/Screens/Auth/registerScreen.dart';
+
 import 'package:ifragen/Screens/Drawer/drawer.dart';
 import 'package:ifragen/Screens/Home/home.dart';
 
+import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
+import '../../Widgets/widgets.dart';
 import '../AddQuestion/addQuestion.dart';
+import '../Profile/myprofile.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});
@@ -39,24 +42,40 @@ class _MainHomeState extends State<MainHome>
   final pagesOptions = const [
     Home(),
     AddQuestion(),
-    RegisterScreen(),
+    MyProfile(),
   ];
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: Stack(children: [
-        const DrawerMenu(),
-        AnimatedPositioned(
-            top: 0,
-            bottom: 0,
-            right: isCollapse ? 0 : -0.4 * size.width,
-            left: isCollapse ? 0 : 0.3 * size.width,
-            duration: _duration,
-            child: ScaleTransition(
-                scale: scaleAnimation, child: screensHome(context))),
-      ]),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => InternetBloc(),
+        ),
+      ],
+      child: Scaffold(
+        body: BlocBuilder<InternetBloc, InternetBlocState>(
+            builder: (context, state) {
+          if (state is InternetNotConnected) {
+            return NoWifiWidget(
+              msg: state.msg,
+              color: Theme.of(context).primaryColor,
+            );
+          }
+          return Stack(children: [
+            const DrawerMenu(),
+            AnimatedPositioned(
+                top: 0,
+                bottom: 0,
+                right: isCollapse ? 0 : -0.4 * size.width,
+                left: isCollapse ? 0 : 0.3 * size.width,
+                duration: _duration,
+                child: ScaleTransition(
+                    scale: scaleAnimation, child: screensHome(context))),
+          ]);
+        }),
+      ),
     );
   }
 
@@ -87,10 +106,7 @@ class _MainHomeState extends State<MainHome>
           title: Text(
             "Ifragen",
             style: GoogleFonts.nunito(
-                //   color: Theme.of(context).primaryColor,
-                color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
           ),
         ),
         bottomNavigationBar: CurvedNavigationBar(

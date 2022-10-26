@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ifragen/Repo/questionRepo.dart';
 import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Home/mainHome.dart';
 
@@ -17,6 +18,7 @@ void main() {
   ]);
   runApp(MultiRepositoryProvider(providers: [
     RepositoryProvider<UserRepo>(create: (context) => UserRepo()),
+    RepositoryProvider<QuestionRepo>(create: (context) => QuestionRepo()),
   ], child: const MyApp()));
 }
 
@@ -61,8 +63,8 @@ class _MyAppState extends State<MyApp> {
               elevation: 0,
               titleTextStyle: GoogleFonts.nunito(
                   color: Theme.of(context).primaryColor, fontSize: 25))),
-    // home: _isSignedIn ? const MainHome() : const SplashScreen(),
-    home: const MainHome(),
+      // home: _isSignedIn ? const MainHome() : const SplashScreen(),
+      home: const MainHome(),
     );
   }
 }

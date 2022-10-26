@@ -11,5 +11,5 @@ class UserCheckEvent extends UserBlocEvent {
   final String password;
   const UserCheckEvent(this.email, this.password);
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [email, password];
 }
