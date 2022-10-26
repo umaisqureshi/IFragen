@@ -44,7 +44,7 @@ class _AddQuestionState extends State<AddQuestion> {
         ),
       ],
       child: Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
         body: BlocBuilder<InternetBloc, InternetBlocState>(
             builder: (context, state) {
           if (state is InternetNotConnected) {
@@ -116,7 +116,6 @@ class _AddQuestionState extends State<AddQuestion> {
                                   onChanged: (value) {
                                     selectedTag = value!;
                                     setState(() {});
-                                    print(selectedTag);
                                   },
                                   onTap: () => setState(() {}),
                                   items: tags.map((String tag) {
@@ -154,7 +153,6 @@ class _AddQuestionState extends State<AddQuestion> {
                                   onChanged: (value) {
                                     question.text = value;
                                     setState(() {});
-                                    print(question.text);
                                   },
                                   style: GoogleFonts.nunito(
                                       color: Colors.white,
@@ -177,7 +175,29 @@ class _AddQuestionState extends State<AddQuestion> {
                                             .add(QuestionPost(
                                                 selectedTag, question.text));
                                       } else {
-                                        print("We are empty");
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                behavior:
+                                                    SnackBarBehavior.floating,
+                                                margin:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 80,
+                                                        horizontal: 40),
+                                                backgroundColor:
+                                                    Theme.of(context)
+                                                        .primaryColor,
+                                                shape: const StadiumBorder(),
+                                                elevation: 30,
+                                                padding:
+                                                    const EdgeInsets.all(20),
+                                                content: Text(
+                                                  "Please Filled All Fields",
+                                                  style: GoogleFonts.nunito(
+                                                      color: Colors.white,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                )));
                                       }
                                     },
                                     child: Container(

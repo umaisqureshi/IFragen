@@ -2,10 +2,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:ifragen/Screens/Drawer/drawer.dart';
 import 'package:ifragen/Screens/Home/home.dart';
-
 import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
 import '../../Widgets/widgets.dart';
 import '../AddQuestion/addQuestion.dart';
@@ -55,6 +53,7 @@ class _MainHomeState extends State<MainHome>
         ),
       ],
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: BlocBuilder<InternetBloc, InternetBlocState>(
             builder: (context, state) {
           if (state is InternetNotConnected) {
@@ -103,16 +102,20 @@ class _MainHomeState extends State<MainHome>
               ),
             ),
           ),
-          title: Text(
-            "Ifragen",
-            style: GoogleFonts.nunito(
-                color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-          ),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Icon(
+                Icons.notifications,
+                color: Colors.white,
+              ),
+            )
+          ],
         ),
         bottomNavigationBar: CurvedNavigationBar(
-          color: Colors.white,
+          color: Theme.of(context).primaryColor,
           height: 60,
-          buttonBackgroundColor: Colors.white,
+          buttonBackgroundColor: Theme.of(context).primaryColor,
           animationDuration: const Duration(milliseconds: 600),
           index: 0,
           onTap: (index) {
@@ -122,22 +125,22 @@ class _MainHomeState extends State<MainHome>
           },
           letIndexChange: (index) => true,
           key: _bottomNavigationKey,
-          backgroundColor: Theme.of(context).primaryColor,
-          items: [
+          backgroundColor: Colors.white,
+          items: const [
             Icon(
               Icons.home,
               size: 30,
-              color: Theme.of(context).primaryColor,
+              color: Colors.white,
             ),
             Icon(
               Icons.add,
               size: 30,
-              color: Theme.of(context).primaryColor,
+              color: Colors.white,
             ),
             Icon(
               Icons.person,
               size: 30,
-              color: Theme.of(context).primaryColor,
+              color: Colors.white,
             ),
           ],
         ),
