@@ -61,7 +61,7 @@ class PostWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
       child: Card(
         shape: const StadiumBorder(),
-        elevation: 25,
+        elevation: 10,
         child: Container(
           height: size.height * 0.25,
           width: size.width * 0.96,
