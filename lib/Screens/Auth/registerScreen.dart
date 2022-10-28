@@ -51,7 +51,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
           body: BlocBuilder<InternetBloc, InternetBlocState>(
             builder: (context, state) {
               if (state is InternetNotConnected) {
-                return NoWifiWidget(msg: state.msg , color: Theme.of(context).primaryColor,);
+                return NoWifiWidget(
+                  msg: state.msg,
+                  color: Theme.of(context).primaryColor,
+                );
               }
 
               return BlocConsumer<RegisterBloc, RegisterBlocState>(
@@ -196,7 +199,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               "Create an Account!",
                                               style: GoogleFonts.nunito(
                                                   // color: Theme.of(context).primaryColor,
-                                                  color: Colors.black45,
+                                                  color: Colors.black,
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -327,10 +330,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                       .size
                                                       .width *
                                                   0.5,
-                                              decoration: const BoxDecoration(
-                                                  color: Colors.black87,
+                                              decoration: BoxDecoration(
+                                                  color: Theme.of(context)
+                                                      .accentColor,
                                                   borderRadius:
-                                                      BorderRadius.all(
+                                                      const BorderRadius.all(
                                                     Radius.circular(30),
                                                   )),
                                               child: Center(
@@ -368,7 +372,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 },
                                               style: GoogleFonts.nunito(
                                                   color: Theme.of(context)
-                                                      .primaryColor,
+                                                      .accentColor,
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold),
                                             )

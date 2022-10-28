@@ -52,20 +52,21 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.dark,
-        title: 'IFragen',
-        theme: ThemeData(
-            useMaterial3: true,
-            accentColor: Colors.greenAccent,
-            primaryColor: const Color(0xff212C51),
-            appBarTheme: AppBarTheme(
-                backgroundColor: Colors.white,
-                centerTitle: true,
-                elevation: 0,
-                titleTextStyle: GoogleFonts.nunito(
-                    color: Theme.of(context).primaryColor, fontSize: 25))),
-        // home: _isSignedIn ? const MainHome() : const SplashScreen(),
-        home: const MainHome());
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
+      title: 'IFragen',
+      theme: ThemeData(
+          useMaterial3: true,
+          accentColor: Colors.greenAccent,
+          primaryColor: const Color(0xff212C51),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.white,
+              centerTitle: true,
+              elevation: 0,
+              titleTextStyle: GoogleFonts.nunito(
+                  color: Theme.of(context).primaryColor, fontSize: 25))),
+      home: _isSignedIn ? const MainHome() : const SplashScreen(),
+      // home: const MainHome()
+    );
   }
 }

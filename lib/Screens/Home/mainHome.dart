@@ -27,8 +27,6 @@ class _MainHomeState extends State<MainHome>
   ];
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -45,7 +43,6 @@ class _MainHomeState extends State<MainHome>
               color: Theme.of(context).primaryColor,
             );
           }
-
           return screensHome(context);
         }),
       ),

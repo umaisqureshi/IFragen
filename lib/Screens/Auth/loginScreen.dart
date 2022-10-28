@@ -254,10 +254,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         .size
                                                         .width *
                                                     0.5,
-                                                decoration: const BoxDecoration(
-                                                    color: Colors.black87,
+                                                decoration: BoxDecoration(
+                                                    color: Theme.of(context)
+                                                        .accentColor,
                                                     borderRadius:
-                                                        BorderRadius.all(
+                                                        const BorderRadius.all(
                                                       Radius.circular(30),
                                                     )),
                                                 child: Center(
@@ -298,7 +299,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       },
                                                 style: GoogleFonts.nunito(
                                                     color: Theme.of(context)
-                                                        .primaryColor,
+                                                        .accentColor,
                                                     fontSize: 15,
                                                     fontWeight:
                                                         FontWeight.bold),

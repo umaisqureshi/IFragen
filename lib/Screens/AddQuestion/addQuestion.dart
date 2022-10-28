@@ -204,9 +204,9 @@ class _AddQuestionState extends State<AddQuestion> {
                                       height: 60,
                                       width: MediaQuery.of(context).size.width *
                                           0.35,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.black87,
-                                          borderRadius: BorderRadius.all(
+                                      decoration: BoxDecoration(
+                                          color: Theme.of(context).accentColor,
+                                          borderRadius: const BorderRadius.all(
                                             Radius.circular(30),
                                           )),
                                       child: Center(
