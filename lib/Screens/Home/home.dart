@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ifragen/Screens/Drawer/drawer.dart';
+
+import '../../Widgets/widgets.dart';
+import '../AddQuestion/addQuestion.dart';
+import 'Trending/trending.dart';
+import 'Widgets/widgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -22,12 +28,24 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Theme.of(context).accentColor,
+            elevation: 20,
+            hoverColor: Theme.of(context).primaryColor,
+            hoverElevation: 50,
+            shape: const StadiumBorder(),
+            child: const Icon(Icons.add),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: ((context) => AddQuestion())));
+            },
+          ),
           appBar: PreferredSize(
-            preferredSize: Size(double.infinity, size.height * 0.35),
+            preferredSize: Size(double.infinity, size.height * 0.18),
             child: Column(
               children: [
                 Container(
-                  height: size.height * 0.15,
+                  height: size.height * 0.18,
                   width: size.width,
                   color: Theme.of(context).primaryColor,
                   child: Column(
@@ -38,9 +56,27 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            SizedBox(
+                              height: size.height * 0.1,
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                height: 60,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).accentColor,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: const Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
                             Container(
                               height: 60,
-                              width: size.width * 0.78,
+                              width: size.width * 0.6,
                               child: TextField(
                                 onChanged: (value) {},
                                 style: GoogleFonts.nunito(
@@ -75,13 +111,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             Container(
                               height: 60,
                               width: 60,
-                              decoration: const BoxDecoration(
-                                  color: Colors.white,
+                              decoration: BoxDecoration(
+                                  color: Theme.of(context).accentColor,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10))),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.search,
-                                color: Theme.of(context).primaryColor,
+                                color: Colors.white,
                               ),
                             ),
                           ],
@@ -90,7 +126,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       TabBar(
                           controller: _tabController,
                           indicatorSize: TabBarIndicatorSize.tab,
-                          indicatorColor: Colors.greenAccent,
+                          indicatorColor: Theme.of(context).accentColor,
                           indicatorWeight: 3,
                           tabs: const [
                             Tab(
@@ -108,14 +144,35 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           ),
           backgroundColor: Colors.white,
           body: TabBarView(controller: _tabController, children: [
-            Center(
-              child: Text(
-                "Trending",
-                style: GoogleFonts.nunito(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold),
-              ),
+            ListView(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: Text(
+                        "Trending topics",
+                        style: GoogleFonts.nunito(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(
+                        height: size.height * 0.1,
+                        width: size.width,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 6,
+                            itemBuilder: ((context, index) {
+                              return trendingScrollWidget(context);
+                            }))),
+                  ],
+                ),
+                const TrendingScreen(),
+              ],
             ),
             Center(
               child: Text(

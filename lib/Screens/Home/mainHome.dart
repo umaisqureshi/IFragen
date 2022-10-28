@@ -18,28 +18,11 @@ class MainHome extends StatefulWidget {
 
 class _MainHomeState extends State<MainHome>
     with SingleTickerProviderStateMixin {
-  final Duration _duration = const Duration(milliseconds: 1000);
-  late AnimationController controller;
-  late Animation<double> scaleAnimation;
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   int page = 0;
-  bool isCollapse = true;
-  @override
-  void initState() {
-    controller = AnimationController(vsync: this, duration: _duration);
-    scaleAnimation = Tween<double>(begin: 1, end: 0.6).animate(controller);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
 
   final pagesOptions = const [
     Home(),
-    AddQuestion(),
     MyProfile(),
   ];
   @override
@@ -62,17 +45,8 @@ class _MainHomeState extends State<MainHome>
               color: Theme.of(context).primaryColor,
             );
           }
-          return Stack(children: [
-            const DrawerMenu(),
-            AnimatedPositioned(
-                top: 0,
-                bottom: 0,
-                right: isCollapse ? 0 : -0.4 * size.width,
-                left: isCollapse ? 0 : 0.3 * size.width,
-                duration: _duration,
-                child: ScaleTransition(
-                    scale: scaleAnimation, child: screensHome(context))),
-          ]);
+
+          return screensHome(context);
         }),
       ),
     );
@@ -81,37 +55,6 @@ class _MainHomeState extends State<MainHome>
   Widget screensHome(context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColor,
-          leading: Padding(
-            padding: EdgeInsets.only(left: 12),
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  if (isCollapse) {
-                    controller.forward();
-                  } else {
-                    controller.reverse();
-                  }
-                  isCollapse = !isCollapse;
-                });
-              },
-              child: const Icon(
-                Icons.menu,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          actions: const [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.notifications,
-                color: Colors.white,
-              ),
-            )
-          ],
-        ),
         bottomNavigationBar: CurvedNavigationBar(
           color: Theme.of(context).primaryColor,
           height: 60,
@@ -125,15 +68,10 @@ class _MainHomeState extends State<MainHome>
           },
           letIndexChange: (index) => true,
           key: _bottomNavigationKey,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.white10,
           items: const [
             Icon(
               Icons.home,
-              size: 30,
-              color: Colors.white,
-            ),
-            Icon(
-              Icons.add,
               size: 30,
               color: Colors.white,
             ),

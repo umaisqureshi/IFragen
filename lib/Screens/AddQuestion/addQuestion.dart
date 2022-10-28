@@ -44,7 +44,7 @@ class _AddQuestionState extends State<AddQuestion> {
         ),
       ],
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
         body: BlocBuilder<InternetBloc, InternetBlocState>(
             builder: (context, state) {
           if (state is InternetNotConnected) {
