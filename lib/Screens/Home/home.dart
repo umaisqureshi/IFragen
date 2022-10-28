@@ -144,36 +144,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           ),
           backgroundColor: Colors.white,
           body: TabBarView(controller: _tabController, children: [
-            ListView(
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Text(
-                        "Trending topics",
-                        style: GoogleFonts.nunito(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    SizedBox(
-                        height: size.height * 0.1,
-                        width: size.width,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 6,
-                            itemBuilder: ((context, index) {
-                              return trendingScrollWidget(context);
-                            }))),
-                  ],
-                ),
-                const TrendingScreen(),
-              ],
-            ),
+            const TrendingScreen(),
             Center(
               child: Text(
                 "Community",

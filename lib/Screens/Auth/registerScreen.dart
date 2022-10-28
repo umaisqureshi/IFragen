@@ -1,14 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Bloc/RegisterBloc/bloc/register_bloc_bloc.dart';
 import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Auth/loginScreen.dart';
 import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
+import '../../Bloc/RegisterBloc/register_bloc_bloc.dart';
 import '../../Utilis/inputdecoration.dart';
 import '../../Widgets/widgets.dart';
 
