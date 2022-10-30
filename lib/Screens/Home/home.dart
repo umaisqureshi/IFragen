@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ifragen/Helper/helper.dart';
 
 import 'Community/community.dart';
 import 'Trending/trending.dart';
@@ -93,16 +94,21 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                               ),
                             ),
                           ),
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                color: Theme.of(context).accentColor,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
-                            child: const Icon(
-                              Icons.search,
-                              color: Colors.white,
+                          GestureDetector(
+                            onTap: () {
+                              HelperClass.saveUserLoggedInStatus(false);
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  color: Theme.of(context).accentColor,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10))),
+                              child: const Icon(
+                                Icons.search,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ],
@@ -132,7 +138,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           controller: _tabController,
           children: const [
             TrendingScreen(),
-            //TrendingScreen(),
             CommunityScreen(),
           ],
         ),
