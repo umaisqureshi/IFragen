@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Models/createCommunityModel.dart';
 import 'package:ifragen/Repo/allCommunityRepo.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../Bloc/CommunityBloc/community_bloc.dart';
@@ -20,15 +19,16 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
   TextEditingController name = TextEditingController();
   TextEditingController description = TextEditingController();
   String? isPublic = "Private";
+  bool isPublicBool = false;
   final ImagePicker _picker = ImagePicker();
   File? image;
 
   Future getImage() async {
-    var img = await _picker.pickImage(source: ImageSource.gallery);
-    if (img == null) return;
-    File? imgs = File(img.path);
+    var picture = await _picker.pickImage(source: ImageSource.gallery);
+    if (picture == null) return;
+    File? images = File(picture.path);
     setState(() {
-      image = imgs;
+      image = images;
     });
   }
 
@@ -43,15 +43,6 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
         backgroundColor: Theme.of(context).primaryColor,
         body: BlocConsumer<CommunityBloc, CommunityState>(
           builder: (context, state) {
-            // if (state is CommunityInitial) {
-            //   return Center(
-            //     child: CircularProgressIndicator(
-            //       color: Theme.of(context).primaryColor,
-            //       strokeWidth: 2,
-            //     ),
-            //   );
-            // }
-
             return Center(
               child: Container(
                 width: size.width * 0.9,
@@ -194,6 +185,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                             onChanged: (value) {
                               setState(() {
                                 isPublic = value.toString();
+                                isPublicBool = false;
                               });
                             },
                           ),
@@ -213,6 +205,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                             onChanged: (value) {
                               setState(() {
                                 isPublic = value.toString();
+                                isPublicBool = true;
                               });
                             },
                           ),
@@ -223,13 +216,15 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           Center(
                             child: GestureDetector(
                               onTap: () async {
-                                BlocProvider.of<CommunityBloc>(context).add(
-                                    CreateCommunityEvent(
-                                        description: description.text,
-                                        isPublic:
-                                            isPublic == "Public" ? true : false,
-                                        name: name.text,
-                                        picture: image!.path));
+                                print(isPublicBool);
+                                BlocProvider.of<CommunityBloc>(context)
+                                    .add(CreateCommunityEvent(
+                                  description: description.text,
+                                  isPublic: isPublicBool,
+                                  name: name.text,
+
+                                  // picture: image!.path
+                                ));
                               },
                               child: Container(
                                 height: 60,

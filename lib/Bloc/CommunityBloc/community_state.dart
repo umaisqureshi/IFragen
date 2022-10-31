@@ -9,11 +9,11 @@ class CommunityInitial extends CommunityState {
   List<Object?> get props => [];
 }
 
-class CommunityLoaded extends CommunityState {
-  final GetCommunitiesModel getCommunities;
-  const CommunityLoaded(this.getCommunities);
+class CommunityLoadedState extends CommunityState {
+  final GetCommunitiesModel getAllCommunities;
+  const CommunityLoadedState(this.getAllCommunities);
   @override
-  List<Object?> get props => [getCommunities];
+  List<Object?> get props => [getAllCommunities];
 }
 
 class CommunityCreated extends CommunityState {

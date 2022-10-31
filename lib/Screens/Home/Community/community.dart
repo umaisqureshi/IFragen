@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Bloc/CommunityBloc/community_bloc.dart';
+import 'package:ifragen/Models/getCommunitiesModel.dart';
 import 'package:ifragen/Repo/allCommunityRepo.dart';
-
-import '../Widgets/widgets.dart';
 import 'CreateCommunity/createCommunity.dart';
 
 class CommunityScreen extends StatefulWidget {
@@ -15,19 +14,17 @@ class CommunityScreen extends StatefulWidget {
 }
 
 class _CommunityScreenState extends State<CommunityScreen> {
-  CommunityBloc communityBloc = CommunityBloc(CommunityRepo());
-  @override
-  void initState() {
-    communityBloc.add(GetCommunities());
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocProvider(
-      create: (context) =>
-          CommunityBloc(RepositoryProvider.of<CommunityRepo>(context)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              CommunityBloc(RepositoryProvider.of<CommunityRepo>(context))
+                ..add(GetCommunitiesEvent()),
+        ),
+      ],
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
           backgroundColor: Theme.of(context).accentColor,
@@ -47,33 +44,79 @@ class _CommunityScreenState extends State<CommunityScreen> {
             return Center(
               child: CircularProgressIndicator(
                 color: Theme.of(context).primaryColor,
-                strokeWidth: 2,
+                strokeWidth: 4,
               ),
             );
           }
 
-          if (state is CommunityLoaded) {
-            print(state.getCommunities.communities.length);
-            return state.getCommunities.communities.isEmpty
-                ? Center(
-                    child: Text(
-                      "No Community Found",
-                      style: GoogleFonts.nunito(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold),
+          if (state is CommunityLoadedState) {
+            GetCommunitiesModel community = state.getAllCommunities;
+            if (community.communities.isNotEmpty) {
+              return ListView.builder(
+                itemCount: community.communities.length,
+                itemBuilder: ((context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Card(
+                      shape: const StadiumBorder(),
+                      elevation: 8,
+                      child: Container(
+                        height: size.height * 0.1,
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: ListTile(
+                            subtitle: community.communities[index].isPublic
+                                ? Text(
+                                    "Public",
+                                    style: GoogleFonts.nunito(
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal),
+                                  )
+                                : Text(
+                                    "Private",
+                                    style: GoogleFonts.nunito(
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                            title: Text(
+                              community.communities[index].name,
+                              style: GoogleFonts.nunito(
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            leading: Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                        community.communities[index].picture
+                                                .isEmpty
+                                            ? "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="
+                                            : state.getAllCommunities
+                                                .communities[index].picture,
+                                      ),
+                                      fit: BoxFit.cover),
+                                  color: Theme.of(context).primaryColor,
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(40))),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  )
-                : ListView.builder(
-                    itemCount: state.getCommunities.communities.length,
-                    itemBuilder: ((context, index) {
-                      return CommunityTileWidget(
-                        size: size,
-                        communitiesModel: state.getCommunities,
-                        index: index,
-                      );
-                    }),
                   );
+                }),
+              );
+            }
           }
           return Center(
             child: Text(

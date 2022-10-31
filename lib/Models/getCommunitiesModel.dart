@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final getCommunitiesModel = getCommunitiesModelFromJson(jsonString);
-
 import 'dart:convert';
 
 GetCommunitiesModel getCommunitiesModelFromJson(str) =>
