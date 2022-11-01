@@ -7,8 +7,8 @@ import 'dart:convert';
 CreateCommunityModel createCommunityModelFromJson(str) =>
     CreateCommunityModel.fromJson(str);
 
-String createCommunityModelToJson(CreateCommunityModel data) =>
-    json.encode(data.toJson());
+// String createCommunityModelToJson(CreateCommunityModel data) =>
+//     json.encode(data.toJson());
 
 class CreateCommunityModel {
   CreateCommunityModel({
@@ -22,9 +22,9 @@ class CreateCommunityModel {
         community: Community.fromJson(json["community"]),
       );
 
-  Map<String, dynamic> toJson() => {
-        "community": community.toJson(),
-      };
+  // Map<String, dynamic> toJson() => {
+  //       "community": community.toJson(),
+  //     };
 }
 
 class Community {
@@ -56,30 +56,30 @@ class Community {
         id: json["id"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "isPublic": isPublic,
-        "name": name,
-        "description": description,
-        "picture": picture,
-        "users": List<dynamic>.from(users.map((x) => x.toJson())),
-        "createdAt": createdAt.toIso8601String(),
-        "id": id,
-      };
+  // Map<String, dynamic> toJson() => {
+  //       "isPublic": isPublic,
+  //       "name": name,
+  //       "description": description,
+  //       "picture": picture,
+  //       "users": List<dynamic>.from(users.map((x) => x.toJson())),
+  //       "createdAt": createdAt.toIso8601String(),
+  //       "id": id,
+  //     };
 }
 
 class User {
   User({
     required this.role,
-    required this.name,
-    required this.email,
-    required this.createdAt,
+    this.name,
+    this.email,
+    this.createdAt,
     required this.id,
   });
 
   String role;
-  String name;
-  String email;
-  DateTime createdAt;
+  String? name;
+  String? email;
+  DateTime? createdAt;
   String id;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
@@ -90,11 +90,11 @@ class User {
         id: json["id"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "role": role,
-        "name": name,
-        "email": email,
-        "createdAt": createdAt.toIso8601String(),
-        "id": id,
-      };
+  // Map<String, dynamic> toJson() => {
+  //       "role": role,
+  //       "name": name,
+  //       "email": email,
+  //       "createdAt": createdAt.toIso8601String(),
+  //       "id": id,
+  //     };
 }

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Bloc/CommunityBloc/community_bloc.dart';
+import 'package:ifragen/Constant/constant.dart';
 import 'package:ifragen/Models/getCommunitiesModel.dart';
 import 'package:ifragen/Repo/allCommunityRepo.dart';
+import 'package:ifragen/Screens/Home/Community/communityMainPage.dart';
 import 'CreateCommunity/createCommunity.dart';
 
 class CommunityScreen extends StatefulWidget {
@@ -68,7 +70,11 @@ class _CommunityScreenState extends State<CommunityScreen> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10))),
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: ((context) => CommunityMainScreen(
+                                    communitiesData: community.communities[index]))));
+                          },
                           child: ListTile(
                             subtitle: community.communities[index].isPublic
                                 ? Text(
@@ -101,8 +107,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
                                         community.communities[index].picture
                                                 .isEmpty
                                             ? "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="
-                                            : state.getAllCommunities
-                                                .communities[index].picture,
+                                            : IMAGE_END_POINT +
+                                                state.getAllCommunities
+                                                    .communities[index].picture,
                                       ),
                                       fit: BoxFit.cover),
                                   color: Theme.of(context).primaryColor,

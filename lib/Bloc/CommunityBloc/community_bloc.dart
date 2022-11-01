@@ -44,7 +44,7 @@ class CommunityBloc extends Bloc<CommunityEvent, CommunityState> {
                 event.description,
                 // event.picture,
                 event.isPublic);
-
+      
         emit(CommunityCreated(createCommunity));
       } catch (e) {
         emit(CommunityError(e.toString()));

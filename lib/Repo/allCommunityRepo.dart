@@ -31,13 +31,14 @@ class CommunityRepo {
     var token = await HelperClass.getUserAccessToken();
     Response response = await post(Uri.parse(CREATE_COMMUNITIES), body: {
       "name": name,
-      "description": description,
-      "isPublic": isPublic
+      "isPublic": isPublic.toString(),
+      "description": description
     }, headers: {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200 || response.statusCode == 201) {
       final result = jsonDecode(response.body);
+      print(result.toString());
       return createCommunityModelFromJson(result);
     } else {
       throw Exception(response.reasonPhrase);
