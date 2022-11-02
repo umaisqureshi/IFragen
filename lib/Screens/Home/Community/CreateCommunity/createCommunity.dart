@@ -47,7 +47,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
             return Center(
               child: Container(
                 width: size.width * 0.9,
-                height: size.height * 0.85,
+                height: size.height * 0.9,
                 color: Colors.transparent,
                 child: Container(
                   decoration: const BoxDecoration(
@@ -162,6 +162,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                             height: 10,
                           ),
                           TextField(
+                            maxLength: 200,
                             maxLines: 5,
                             onChanged: (value) {
                               description.text = value;

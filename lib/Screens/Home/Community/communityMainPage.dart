@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ifragen/Screens/Home/Community/communityDetailedPage.dart';
 import '../../../Constant/constant.dart';
 import '../../../Models/getCommunitiesModel.dart';
 import '../../../Utilis/inputdecoration.dart';
@@ -71,35 +72,41 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
                   hintText: "Search",
                 ),
               )
-            : Row(
-                children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                              widget.communitiesData.picture.isEmpty
-                                  ? "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="
-                                  : IMAGE_END_POINT +
-                                      widget.communitiesData.picture,
-                            ),
-                            fit: BoxFit.cover),
-                        color: Colors.white,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(40))),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    widget.communitiesData.name,
-                    style: GoogleFonts.roboto(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+            : GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: ((context) => CommunityDetailedPage(communityDetail: widget.communitiesData,))));
+                },
+                child: Row(
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                widget.communitiesData.picture.isEmpty
+                                    ? "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="
+                                    : IMAGE_END_POINT +
+                                        widget.communitiesData.picture,
+                              ),
+                              fit: BoxFit.cover),
+                          color: Colors.white,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(40))),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      widget.communitiesData.name,
+                      style: GoogleFonts.roboto(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
       ),
       backgroundColor: Colors.white,
