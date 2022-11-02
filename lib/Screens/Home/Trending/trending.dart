@@ -25,7 +25,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
       create: (context) => TrendingQuestionsBloc(),
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).primaryColor,
           elevation: 20,
           hoverColor: Theme.of(context).primaryColor,
           hoverElevation: 50,
@@ -43,10 +43,11 @@ class _TrendingScreenState extends State<TrendingScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(6.0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10.0, vertical: 3),
                   child: Text(
                     "Trending topics",
-                    style: GoogleFonts.nunito(
+                    style: GoogleFonts.roboto(
                         color: Theme.of(context).primaryColor,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
@@ -89,7 +90,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                 // return Center(
                 //   child: Text(
                 //     "Trending Posts",
-                //     style: GoogleFonts.nunito(
+                //     style: GoogleFonts.roboto(
                 //         color: Theme.of(context).primaryColor,
                 //         fontSize: 18,
                 //         fontWeight: FontWeight.bold),

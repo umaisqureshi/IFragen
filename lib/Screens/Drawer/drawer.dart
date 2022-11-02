@@ -41,7 +41,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 onTap: () async {},
                 child: Text(
                   "Home",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.roboto(
                       color: Theme.of(context).primaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
@@ -54,7 +54,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 onTap: () async {},
                 child: Text(
                   "My Questions",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.roboto(
                       color: Theme.of(context).primaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
@@ -67,7 +67,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 onTap: () async {},
                 child: Text(
                   "My Community",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.roboto(
                       color: Theme.of(context).primaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
@@ -80,7 +80,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 onTap: () async {},
                 child: Text(
                   "My Profile",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.roboto(
                       color: Theme.of(context).primaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),
@@ -93,7 +93,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 onTap: () async {},
                 child: Text(
                   "Logout",
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.roboto(
                       color: Theme.of(context).primaryColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold),

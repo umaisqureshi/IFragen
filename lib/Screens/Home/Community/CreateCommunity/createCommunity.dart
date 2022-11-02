@@ -40,7 +40,8 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
       create: (context) =>
           CommunityBloc(RepositoryProvider.of<CommunityRepo>(context)),
       child: Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
+        // backgroundColor: Theme.of(context).primaryColor,
         body: BlocConsumer<CommunityBloc, CommunityState>(
           builder: (context, state) {
             return Center(
@@ -67,7 +68,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           Center(
                             child: Text(
                               "Community",
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.roboto(
                                   color: Theme.of(context).primaryColor,
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold),
@@ -80,31 +81,38 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           Center(
                             child: Column(
                               children: [
-                                Container(
-                                    height: 80,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(40),
-                                        color: Theme.of(context).primaryColor),
-                                    child: image == null
-                                        ? IconButton(
-                                            icon: const Icon(
-                                              Icons.camera_alt_sharp,
-                                              color: Colors.white,
-                                              size: 30,
-                                            ),
-                                            onPressed: getImage,
-                                          )
-                                        : CircleAvatar(
-                                            backgroundColor:
-                                                Theme.of(context).primaryColor,
-                                            backgroundImage: FileImage(image!),
-                                          )),
+                                Card(
+                                  elevation: 4,
+                                  shape: StadiumBorder(),
+                                  child: Container(
+                                      height: 80,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(40),
+                                          color: Colors.white),
+                                      child: image == null
+                                          ? IconButton(
+                                              icon: Icon(
+                                                Icons.camera_alt_sharp,
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                size: 30,
+                                              ),
+                                              onPressed: getImage,
+                                            )
+                                          : CircleAvatar(
+                                              backgroundColor: Theme.of(context)
+                                                  .primaryColor,
+                                              backgroundImage:
+                                                  FileImage(image!),
+                                            )),
+                                ),
                                 const SizedBox(
                                   height: 5,
                                 ),
                                 Text(
-                                  "Upload Image",
+                                  "Upload",
                                   style: GoogleFonts.quicksand(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 12),
@@ -118,7 +126,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           ),
                           Text(
                             "Name",
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.roboto(
                                 color: Theme.of(context).primaryColor,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
@@ -127,11 +135,12 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                             height: 10,
                           ),
                           TextField(
+                            maxLength: 20,
                             onChanged: (value) {
                               name.text = value;
                               setState(() {});
                             },
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.roboto(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold),
@@ -144,7 +153,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           ),
                           Text(
                             "Description",
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.roboto(
                                 color: Theme.of(context).primaryColor,
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold),
@@ -158,7 +167,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                               description.text = value;
                               setState(() {});
                             },
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.roboto(
                                 color: Colors.white,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold),
@@ -173,7 +182,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           RadioListTile(
                             title: Text(
                               "Private",
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.roboto(
                                   color: Theme.of(context).primaryColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold),
@@ -193,7 +202,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           RadioListTile(
                             title: Text(
                               "Public",
-                              style: GoogleFonts.nunito(
+                              style: GoogleFonts.roboto(
                                   color: Theme.of(context).primaryColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold),
@@ -210,7 +219,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                             },
                           ),
                           SizedBox(
-                            height: size.height * 0.04,
+                            height: size.height * 0.03,
                           ),
 
                           Center(
@@ -226,21 +235,26 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                                   // picture: image!.path
                                 ));
                               },
-                              child: Container(
-                                height: 60,
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                decoration: BoxDecoration(
-                                    color: Theme.of(context).accentColor,
-                                    borderRadius: const BorderRadius.all(
-                                      Radius.circular(30),
-                                    )),
-                                child: Center(
-                                  child: Text(
-                                    "CREATE",
-                                    style: GoogleFonts.nunito(
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
+                              child: Card(
+                                elevation: 10,
+                                shape: const StadiumBorder(),
+                                child: Container(
+                                  height: 60,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.4,
+                                  decoration: BoxDecoration(
+                                      color: Theme.of(context).accentColor,
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(30),
+                                      )),
+                                  child: Center(
+                                    child: Text(
+                                      "CREATE",
+                                      style: GoogleFonts.roboto(
+                                          color: Theme.of(context).primaryColor,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -266,7 +280,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                   padding: const EdgeInsets.all(20),
                   content: Text(
                     state.error,
-                    style: GoogleFonts.nunito(
+                    style: GoogleFonts.roboto(
                         color: Colors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.bold),
@@ -284,7 +298,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                   padding: const EdgeInsets.all(20),
                   content: Text(
                     "Successfully Created",
-                    style: GoogleFonts.nunito(
+                    style: GoogleFonts.roboto(
                         color: Colors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.bold),

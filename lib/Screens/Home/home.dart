@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Helper/helper.dart';
+import 'package:ifragen/Screens/Profile/myprofile.dart';
 
 import 'Community/community.dart';
 import 'Trending/trending.dart';
@@ -27,7 +28,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       length: 2,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size(double.infinity, size.height * 0.18),
+          preferredSize: Size(double.infinity, size.height * 0.16),
           child: Column(
             children: [
               Container(
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 6.0, horizontal: 10),
+                          vertical: 6.0, horizontal: 5),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -46,68 +47,88 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             height: size.height * 0.1,
                           ),
                           GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 60,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  color: Theme.of(context).accentColor,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: const Icon(
-                                Icons.menu,
-                                color: Colors.white,
+                            onTap: () {
+                              HelperClass.saveUserLoggedInStatus(false);
+                            },
+                            child: Card(
+                              elevation: 10,
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: const Icon(
+                                  Icons.menu,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
-                          Container(
-                            height: 60,
+                          SizedBox(
+                            height: 45,
                             width: size.width * 0.6,
                             child: TextField(
+                              textAlignVertical: TextAlignVertical.center,
+                              textAlign: TextAlign.justify,
+                              cursorColor: Theme.of(context).primaryColor,
                               onChanged: (value) {},
-                              style: GoogleFonts.nunito(
-                                  color: Colors.white,
+                              style: GoogleFonts.roboto(
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 12,
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.normal),
                               decoration: InputDecoration(
                                 focusColor: Colors.white,
+                                suffixIcon: Icon(
+                                  Icons.search,
+                                  color: Theme.of(context).primaryColor,
+                                  size: 20,
+                                ),
                                 border: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                       color: Colors.white, width: 1.0),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      color: Colors.white, width: 5.0),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                      color: Colors.white, width: 1.0),
+                                  borderRadius: BorderRadius.circular(10.0),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                       color: Colors.white, width: 1.0),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  borderRadius: BorderRadius.circular(10.0),
                                 ),
+                                hintTextDirection: TextDirection.ltr,
+                                filled: true,
+                                fillColor: Colors.white,
                                 hintText: "Search",
-                                hintStyle: GoogleFonts.nunito(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold),
+                                hintStyle: GoogleFonts.roboto(
+                                    color: Theme.of(context).primaryColor,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal),
                               ),
                             ),
                           ),
                           GestureDetector(
                             onTap: () {
-                              HelperClass.saveUserLoggedInStatus(false);
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: ((context) => MyProfile())));
                             },
-                            child: Container(
-                              height: 60,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  color: Theme.of(context).accentColor,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: const Icon(
-                                Icons.search,
-                                color: Colors.white,
+                            child: Card(
+                              elevation: 10,
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: const Icon(
+                                  Icons.person,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),

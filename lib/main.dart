@@ -63,13 +63,14 @@ class _MyAppState extends State<MyApp> {
       title: 'IFragen',
       theme: ThemeData(
           useMaterial3: true,
-          accentColor: Colors.greenAccent,
-          primaryColor: const Color(0xff212C51),
+          accentColor: Colors.white,
+          // primaryColor: const Color(0xff212C51),
+          primaryColor: const Color(0xff003811),
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.white,
               centerTitle: true,
               elevation: 0,
-              titleTextStyle: GoogleFonts.nunito(
+              titleTextStyle: GoogleFonts.roboto(
                   color: Theme.of(context).primaryColor, fontSize: 25))),
       home: _isSignedIn ? const MainHome() : const SplashScreen(),
     );

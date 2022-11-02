@@ -88,7 +88,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                 ),
                                 Text(
                                   "Catagories",
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.roboto(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
@@ -100,13 +100,13 @@ class _AddQuestionState extends State<AddQuestion> {
                                   isExpanded: true,
                                   borderRadius: BorderRadius.circular(20),
                                   elevation: 4,
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.roboto(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                   hint: Text(
                                     "Select Categories",
-                                    style: GoogleFonts.nunito(
+                                    style: GoogleFonts.roboto(
                                         color: Theme.of(context).primaryColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold),
@@ -125,7 +125,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                         children: <Widget>[
                                           Text(
                                             tag,
-                                            style: GoogleFonts.nunito(
+                                            style: GoogleFonts.roboto(
                                                 color: Theme.of(context)
                                                     .primaryColor,
                                                 fontSize: 12,
@@ -141,7 +141,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                 ),
                                 Text(
                                   "Question",
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.roboto(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
@@ -154,7 +154,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                     question.text = value;
                                     setState(() {});
                                   },
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.roboto(
                                       color: Colors.white,
                                       fontSize: 12,
                                       fontWeight: FontWeight.bold),
@@ -192,7 +192,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                                     const EdgeInsets.all(20),
                                                 content: Text(
                                                   "Please Filled All Fields",
-                                                  style: GoogleFonts.nunito(
+                                                  style: GoogleFonts.roboto(
                                                       color: Colors.white,
                                                       fontSize: 12,
                                                       fontWeight:
@@ -212,7 +212,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                       child: Center(
                                         child: Text(
                                           "Ask Now",
-                                          style: GoogleFonts.nunito(
+                                          style: GoogleFonts.roboto(
                                               color: Colors.white,
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold),

@@ -35,7 +35,7 @@ class NoWifiWidget extends StatelessWidget {
         ),
         Text(
           msg,
-          style: GoogleFonts.nunito(
+          style: GoogleFonts.roboto(
               color: this.color,
               //color: Colors.white,
               fontSize: 22,
@@ -60,14 +60,17 @@ class PostWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
       child: Card(
-        shape: const StadiumBorder(),
-        elevation: 10,
+        shape: const RoundedRectangleBorder(),
+        elevation: 2,
         child: Container(
           height: size.height * 0.25,
           width: size.width * 0.96,
           decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(30))),
+            color: Colors.white,
+            // borderRadius: BorderRadius.all(
+            //   Radius.circular(30),
+            //  ),
+          ),
           child: Column(
             children: [
               Row(
@@ -94,14 +97,14 @@ class PostWidget extends StatelessWidget {
                     children: [
                       Text(
                         name,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.roboto(
                             color: Theme.of(context).primaryColor,
                             fontSize: 12,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
                         email,
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.roboto(
                             color: Theme.of(context).primaryColor,
                             fontSize: 12,
                             fontWeight: FontWeight.normal),
@@ -127,10 +130,10 @@ class PostWidget extends StatelessWidget {
                   width: size.width,
                   child: Text(
                     "What are your most important engagement values, and how will you make sure these values are reflected in the engagement process?",
-                    style: GoogleFonts.nunito(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500),
+                    style: GoogleFonts.roboto(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal),
                     overflow: TextOverflow.ellipsis,
                     maxLines: 3,
                   ),
@@ -140,10 +143,26 @@ class PostWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   iconsAndTextButton(
-                      234, const Icon(Icons.arrow_upward), context),
+                      234,
+                      const Icon(
+                        Icons.arrow_upward,
+                        color: Colors.greenAccent,
+                      ),
+                      context),
                   iconsAndTextButton(
-                      45, const Icon(Icons.arrow_downward), context),
-                  iconsAndTextButton(22, const Icon(Icons.comment), context),
+                      45,
+                      const Icon(
+                        Icons.arrow_downward,
+                        color: Colors.red,
+                      ),
+                      context),
+                  iconsAndTextButton(
+                      22,
+                      const Icon(
+                        Icons.comment,
+                        color: Colors.blue,
+                      ),
+                      context),
                 ],
               )
             ],
@@ -165,7 +184,7 @@ Widget iconsAndTextButton(int count, Icon icon, BuildContext context) {
       ),
       Text(
         count.toString(),
-        style: GoogleFonts.nunito(
+        style: GoogleFonts.roboto(
             color: Theme.of(context).primaryColor,
             fontSize: 14,
             fontWeight: FontWeight.bold),

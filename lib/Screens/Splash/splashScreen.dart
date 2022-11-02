@@ -12,36 +12,38 @@ class SplashScreen extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/splashimage2.jpg"),
-                opacity: 1.0,
-                fit: BoxFit.cover)),
+          image: DecorationImage(
+              image: AssetImage("assets/splashimage2.jpg"),
+              opacity: 0.7,
+              fit: BoxFit.cover),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.45,
+                height: MediaQuery.of(context).size.height * 0.5,
               ),
-              Container(
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                    image: const DecorationImage(
-                        image: AssetImage(
-                          "assets/splashicon.png",
-                        ),
-                        fit: BoxFit.cover),
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: const BorderRadius.all(Radius.circular(40))),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
+              // Container(
+              //   height: 100,
+              //   width: 100,
+              //   decoration: BoxDecoration(
+              //       image: const DecorationImage(
+              //           image: AssetImage(
+              //             "assets/splashicon.png",
+              //           ),
+              //           opacity: 0.7,
+              //           fit: BoxFit.cover),
+              //       color: Theme.of(context).primaryColor,
+              //       borderRadius: const BorderRadius.all(Radius.circular(40))),
+              // ),
+              // const SizedBox(
+              //   height: 8,
+              // ),
               Text(
                 "What are you looking for?\nTrust yourself that you can do it and find it.",
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.roboto(
                     //   color: Theme.of(context).primaryColor,
                     color: Colors.white,
                     fontSize: 22,
@@ -52,13 +54,13 @@ class SplashScreen extends StatelessWidget {
               ),
               Text(
                 "Connect with your interset-related community and get your all answers and create your own community to facilitate the others.",
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.normal),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.1,
+                height: MediaQuery.of(context).size.height * 0.18,
               ),
               Center(
                 child: GestureDetector(
@@ -75,7 +77,7 @@ class SplashScreen extends StatelessWidget {
                     child: Center(
                       child: Text(
                         "Get Started",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.roboto(
                             color: Theme.of(context).primaryColor,
                             fontSize: 24,
                             fontWeight: FontWeight.bold),

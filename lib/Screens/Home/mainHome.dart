@@ -43,7 +43,8 @@ class _MainHomeState extends State<MainHome>
               color: Theme.of(context).primaryColor,
             );
           }
-          return screensHome(context);
+          // return screensHome(context);
+          return const Home();
         }),
       ),
     );

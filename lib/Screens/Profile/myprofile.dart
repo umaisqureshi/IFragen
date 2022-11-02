@@ -20,7 +20,7 @@ class _MyProfileState extends State<MyProfile> {
           Center(
             child: Text(
               "Profile",
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.roboto(
                   color: Colors.white,
                   fontSize: 22,
                   fontWeight: FontWeight.bold),

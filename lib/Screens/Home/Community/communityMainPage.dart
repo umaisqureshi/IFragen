@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../Constant/constant.dart';
 import '../../../Models/getCommunitiesModel.dart';
 import '../../../Utilis/inputdecoration.dart';
+import '../../../Widgets/widgets.dart';
 
 class CommunityMainScreen extends StatefulWidget {
   final Community communitiesData;
@@ -19,16 +20,37 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 25,
-            ),
-            onPressed: () => setState(() {
-              showSearch = !showSearch;
-            }),
-          ),
+          showSearch
+              ? Center(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          showSearch = !showSearch;
+                        });
+                      },
+                      child: Text(
+                        "Go",
+                        style: GoogleFonts.roboto(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                )
+              : IconButton(
+                  icon: const Icon(
+                    Icons.search,
+                    color: Colors.white,
+                    size: 25,
+                  ),
+                  onPressed: () => setState(() {
+                    showSearch = !showSearch;
+                  }),
+                ),
         ],
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
@@ -37,10 +59,11 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
         backgroundColor: Theme.of(context).primaryColor,
         title: showSearch
             ? TextField(
+                cursorColor: Colors.white,
                 onChanged: (value) {
                   setState(() {});
                 },
-                style: GoogleFonts.nunito(
+                style: GoogleFonts.roboto(
                     color: Colors.white,
                     fontSize: 15,
                     fontWeight: FontWeight.bold),
@@ -71,7 +94,7 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
                   ),
                   Text(
                     widget.communitiesData.name,
-                    style: GoogleFonts.nunito(
+                    style: GoogleFonts.roboto(
                         color: Colors.white,
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
@@ -80,7 +103,17 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
               ),
       ),
       backgroundColor: Colors.white,
-      body: ListView(children: const []),
+      body: ListView.builder(
+          physics: const BouncingScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 5,
+          itemBuilder: ((context, index) {
+            return const PostWidget(
+              email: "umaisqureshi26@gmail.com",
+              name: "Umais Qureshi",
+              image: "assets/splashicon.png",
+            );
+          })),
     );
   }
 }

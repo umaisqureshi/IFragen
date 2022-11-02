@@ -65,14 +65,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   AlertDialog(
                     title: Text(
                       "Congratulation",
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.roboto(
                           color: Theme.of(context).primaryColor,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                     content: Text(
                       "Kindly verify your email and login again",
-                      style: GoogleFonts.nunito(
+                      style: GoogleFonts.roboto(
                           color:
                               Theme.of(context).primaryColor.withOpacity(0.6),
                           fontSize: 15,
@@ -96,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         children: [
                           Text(
                             "OOPS!",
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.roboto(
                                 color: Colors.white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold),
@@ -106,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           Text(
                             "Email is Already Registered",
-                            style: GoogleFonts.nunito(
+                            style: GoogleFonts.roboto(
                                 color: Colors.white,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold),
@@ -132,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Center(
                                 child: Text(
                                   "Go To Login",
-                                  style: GoogleFonts.nunito(
+                                  style: GoogleFonts.roboto(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
@@ -182,7 +182,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           Center(
                                             child: Text(
                                               "Welcome!",
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   color: Theme.of(context)
                                                       .primaryColor,
                                                   fontSize: 20,
@@ -195,7 +195,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           Center(
                                             child: Text(
                                               "Create an Account!",
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   // color: Theme.of(context).primaryColor,
                                                   color: Colors.black,
                                                   fontSize: 14,
@@ -222,7 +222,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 }
                                                 return null;
                                               },
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   color: Colors.white,
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold),
@@ -254,7 +254,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 }
                                                 return null;
                                               },
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   color: Colors.white,
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold),
@@ -283,7 +283,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 }
                                                 return null;
                                               },
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   color: Colors.white,
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold),
@@ -328,17 +328,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                       .size
                                                       .width *
                                                   0.5,
-                                              decoration: BoxDecoration(
-                                                  color: Theme.of(context)
-                                                      .accentColor,
+                                              decoration: const BoxDecoration(
+                                                  color: Colors.black,
                                                   borderRadius:
-                                                      const BorderRadius.all(
+                                                      BorderRadius.all(
                                                     Radius.circular(30),
                                                   )),
                                               child: Center(
                                                 child: Text(
                                                   "Sign Up",
-                                                  style: GoogleFonts.nunito(
+                                                  style: GoogleFonts.roboto(
                                                       color: Colors.white,
                                                       fontSize: 20,
                                                       fontWeight:
@@ -354,7 +353,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               text: TextSpan(children: [
                                             TextSpan(
                                               text: "Already a Member? ",
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   color: Colors.black,
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold),
@@ -368,9 +367,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                           builder: (context) =>
                                                               const LoginScreen()));
                                                 },
-                                              style: GoogleFonts.nunito(
+                                              style: GoogleFonts.roboto(
                                                   color: Theme.of(context)
-                                                      .accentColor,
+                                                      .primaryColor,
                                                   fontSize: 15,
                                                   fontWeight: FontWeight.bold),
                                             )

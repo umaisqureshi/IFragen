@@ -70,14 +70,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       elevation: 5,
                       title: Text(
                         "Welcome",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.roboto(
                             color: Theme.of(context).primaryColor,
                             fontSize: 25,
                             fontWeight: FontWeight.bold),
                       ),
                       content: Text(
                         "Good to see you again",
-                        style: GoogleFonts.nunito(
+                        style: GoogleFonts.roboto(
                             color:
                                 Theme.of(context).primaryColor.withOpacity(0.8),
                             fontSize: 20,
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Center(
                                               child: Text(
                                                 "Hello Again!",
-                                                style: GoogleFonts.nunito(
+                                                style: GoogleFonts.roboto(
                                                     color: Theme.of(context)
                                                         .primaryColor,
                                                     fontSize: 20,
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             Center(
                                               child: Text(
                                                 "Welcome Back You've\n        Been Missed!",
-                                                style: GoogleFonts.nunito(
+                                                style: GoogleFonts.roboto(
                                                     // color: Theme.of(context).primaryColor,
                                                     color: Colors.black,
                                                     fontSize: 14,
@@ -171,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   }
                                                   return null;
                                                 },
-                                                style: GoogleFonts.nunito(
+                                                style: GoogleFonts.roboto(
                                                     color: Colors.white,
                                                     fontSize: 15,
                                                     fontWeight:
@@ -203,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   }
                                                   return null;
                                                 },
-                                                style: GoogleFonts.nunito(
+                                                style: GoogleFonts.roboto(
                                                     color: Colors.white,
                                                     fontSize: 15,
                                                     fontWeight:
@@ -254,17 +254,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         .size
                                                         .width *
                                                     0.5,
-                                                decoration: BoxDecoration(
-                                                    color: Theme.of(context)
-                                                        .accentColor,
+                                                decoration: const BoxDecoration(
+                                                    color: Colors.black,
                                                     borderRadius:
-                                                        const BorderRadius.all(
+                                                        BorderRadius.all(
                                                       Radius.circular(30),
                                                     )),
                                                 child: Center(
                                                   child: Text(
                                                     "Sign In",
-                                                    style: GoogleFonts.nunito(
+                                                    style: GoogleFonts.roboto(
                                                         color: Colors.white,
                                                         fontSize: 20,
                                                         fontWeight:
@@ -280,7 +279,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 text: TextSpan(children: [
                                               TextSpan(
                                                 text: "Not a Member? ",
-                                                style: GoogleFonts.nunito(
+                                                style: GoogleFonts.roboto(
                                                     color: Colors.black,
                                                     fontSize: 15,
                                                     fontWeight:
@@ -297,9 +296,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                                                     (context) =>
                                                                         const RegisterScreen()));
                                                       },
-                                                style: GoogleFonts.nunito(
+                                                style: GoogleFonts.roboto(
                                                     color: Theme.of(context)
-                                                        .accentColor,
+                                                        .primaryColor,
                                                     fontSize: 15,
                                                     fontWeight:
                                                         FontWeight.bold),

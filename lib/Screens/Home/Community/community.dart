@@ -29,7 +29,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
       ],
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).accentColor,
+          backgroundColor: Theme.of(context).primaryColor,
           elevation: 20,
           hoverColor: Theme.of(context).primaryColor,
           hoverElevation: 50,
@@ -58,64 +58,60 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 itemCount: community.communities.length,
                 itemBuilder: ((context, index) {
                   return Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: Card(
-                      shape: const StadiumBorder(),
-                      elevation: 8,
-                      child: Container(
-                        height: size.height * 0.1,
-                        width: double.infinity,
-                        decoration: const BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: ((context) => CommunityMainScreen(
-                                    communitiesData: community.communities[index]))));
-                          },
-                          child: ListTile(
-                            subtitle: community.communities[index].isPublic
-                                ? Text(
-                                    "Public",
-                                    style: GoogleFonts.nunito(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal),
-                                  )
-                                : Text(
-                                    "Private",
-                                    style: GoogleFonts.nunito(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.normal),
-                                  ),
-                            title: Text(
-                              community.communities[index].name,
-                              style: GoogleFonts.nunito(
-                                  color: Theme.of(context).primaryColor,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            leading: Container(
-                              height: 60,
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                        community.communities[index].picture
-                                                .isEmpty
-                                            ? "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="
-                                            : IMAGE_END_POINT +
-                                                state.getAllCommunities
-                                                    .communities[index].picture,
-                                      ),
-                                      fit: BoxFit.cover),
-                                  color: Theme.of(context).primaryColor,
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(40))),
-                            ),
+                    padding: const EdgeInsets.all(2.0),
+                    child: Container(
+                      height: size.height * 0.1,
+                      width: double.infinity,
+                      decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: ((context) => CommunityMainScreen(
+                                  communitiesData:
+                                      community.communities[index]))));
+                        },
+                        child: ListTile(
+                          subtitle: community.communities[index].isPublic
+                              ? Text(
+                                  "Public",
+                                  style: GoogleFonts.roboto(
+                                      color: Theme.of(context).primaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                )
+                              : Text(
+                                  "Private",
+                                  style: GoogleFonts.roboto(
+                                      color: Theme.of(context).primaryColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.normal),
+                                ),
+                          title: Text(
+                            community.communities[index].name,
+                            style: GoogleFonts.roboto(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          leading: Container(
+                            height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                      community.communities[index].picture
+                                              .isEmpty
+                                          ? "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="
+                                          : IMAGE_END_POINT +
+                                              state.getAllCommunities
+                                                  .communities[index].picture,
+                                    ),
+                                    fit: BoxFit.cover),
+                                color: Theme.of(context).primaryColor,
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(40))),
                           ),
                         ),
                       ),
@@ -128,7 +124,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
           return Center(
             child: Text(
               "No Community Found",
-              style: GoogleFonts.nunito(
+              style: GoogleFonts.roboto(
                   color: Theme.of(context).primaryColor,
                   fontSize: 12,
                   fontWeight: FontWeight.bold),
@@ -146,7 +142,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 padding: const EdgeInsets.all(20),
                 content: Text(
                   state.error,
-                  style: GoogleFonts.nunito(
+                  style: GoogleFonts.roboto(
                       color: Colors.white,
                       fontSize: 12,
                       fontWeight: FontWeight.bold),
