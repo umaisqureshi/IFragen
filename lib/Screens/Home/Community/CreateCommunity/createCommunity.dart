@@ -233,7 +233,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                                   isPublic: isPublicBool,
                                   name: name.text,
 
-                                  // picture: image!.path
+                                  picture: image!.path
                                 ));
                               },
                               child: Card(

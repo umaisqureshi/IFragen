@@ -12,14 +12,14 @@ class GetCommunitiesEvent extends CommunityEvent {
 class CreateCommunityEvent extends CommunityEvent {
   final String name;
   final String description;
-  //final String picture;
+  final String picture;
   final bool isPublic;
 
   const CreateCommunityEvent(
       {required this.description,
       required this.isPublic,
       required this.name,
-     // required this.picture
+      required this.picture
       });
   @override
   List<Object?> get props => [name,

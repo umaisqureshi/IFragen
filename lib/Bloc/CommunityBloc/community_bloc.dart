@@ -40,10 +40,7 @@ class CommunityBloc extends Bloc<CommunityEvent, CommunityState> {
       try {
         CreateCommunityModel createCommunity =
             await communityRepo.createCommunities(
-                event.name,
-                event.description,
-                // event.picture,
-                event.isPublic);
+                event.name, event.description, event.picture, event.isPublic);
 
         emit(CommunityCreated(createCommunity));
       } catch (e) {

@@ -24,20 +24,22 @@ class CommunityRepo {
   }
 
   Future<CreateCommunityModel> createCommunities(
-      String name,
-      String description,
-      // String picture,
-      bool isPublic) async {
+      String name, String description, String picture, bool isPublic) async {
     var token = await HelperClass.getUserAccessToken();
-    Response response = await post(Uri.parse(CREATE_COMMUNITIES), body: {
-      "name": name,
-      "isPublic": isPublic.toString(),
-      "description": description
-    }, headers: {
-      'Authorization': 'Bearer $token',
+    var headers = {'Authorization': 'Bearer $token'};
+    var request = MultipartRequest('POST', Uri.parse(CREATE_COMMUNITIES));
+    request.fields.addAll({
+      'name': name,
+      'description': description,
+      'isPublic': isPublic.toString(),
     });
+    request.files.add(await MultipartFile.fromPath('image', picture));
+    request.headers.addAll(headers);
+
+    StreamedResponse response = await request.send();
+
     if (response.statusCode == 200 || response.statusCode == 201) {
-      final result = jsonDecode(response.body);
+      final result = jsonDecode(await response.stream.bytesToString());
       print(result.toString());
       return createCommunityModelFromJson(result);
     } else {
