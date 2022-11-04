@@ -80,10 +80,18 @@ class _TrendingScreenState extends State<TrendingScreen> {
                       shrinkWrap: true,
                       itemCount: 5,
                       itemBuilder: ((context, index) {
-                        return const PostWidget(
-                          email: "umaisqureshi26@gmail.com",
-                          name: "Umais Qureshi",
-                          image: "assets/splashicon.png",
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: ((context) =>
+                                    const QuestionDetailedPage(
+                                        name: "", question: ""))));
+                          },
+                          child: const PostWidget(
+                            email: "umaisqureshi26@gmail.com",
+                            name: "Umais Qureshi",
+                            image: "assets/splashicon.png",
+                          ),
                         );
                       }));
                 }
@@ -103,10 +111,17 @@ class _TrendingScreenState extends State<TrendingScreen> {
                     shrinkWrap: true,
                     itemCount: 5,
                     itemBuilder: ((context, index) {
-                      return const PostWidget(
-                        email: "umaisqureshi26@gmail.com",
-                        name: "Umais Qureshi",
-                        image: "assets/splashicon.png",
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: ((context) => const QuestionDetailedPage(
+                                  name: "", question: ""))));
+                        },
+                        child: const PostWidget(
+                          email: "umaisqureshi26@gmail.com",
+                          name: "Umais Qureshi",
+                          image: "assets/splashicon.png",
+                        ),
                       );
                     }));
               },

@@ -75,7 +75,9 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
             : GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: ((context) => CommunityDetailedPage(communityDetail: widget.communitiesData,))));
+                      builder: ((context) => CommunityDetailedPage(
+                            communityDetail: widget.communitiesData,
+                          ))));
                 },
                 child: Row(
                   children: [
@@ -115,10 +117,17 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
           shrinkWrap: true,
           itemCount: 5,
           itemBuilder: ((context, index) {
-            return const PostWidget(
-              email: "umaisqureshi26@gmail.com",
-              name: "Umais Qureshi",
-              image: "assets/splashicon.png",
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: ((context) =>
+                        const QuestionDetailedPage(name: "", question: ""))));
+              },
+              child: const PostWidget(
+                email: "umaisqureshi26@gmail.com",
+                name: "Umais Qureshi",
+                image: "assets/splashicon.png",
+              ),
             );
           })),
     );
