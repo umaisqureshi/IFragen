@@ -13,7 +13,7 @@ Padding trendingScrollWidget(BuildContext context, TrendingIconModel data) {
           shape: const StadiumBorder(),
           elevation: 5,
           child: GestureDetector(
-            onTap: null,
+            onTap: data.onPress,
             child: Container(
               height: 60,
               width: 60,
@@ -24,17 +24,21 @@ Padding trendingScrollWidget(BuildContext context, TrendingIconModel data) {
                 child: Image.asset(
                   data.icon,
                   fit: BoxFit.cover,
-                  scale: 3,
+                  scale: 2.7,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
             ),
           ),
         ),
+        const SizedBox(
+          height: 2,
+        ),
         Text(
           data.title,
           style: GoogleFonts.roboto(
               color: Theme.of(context).primaryColor,
-              fontSize: 8,
+              fontSize: 9,
               fontWeight: FontWeight.normal),
         ),
       ],
