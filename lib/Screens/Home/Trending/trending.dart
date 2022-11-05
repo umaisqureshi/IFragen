@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ifragen/Models/trendingIconModel.dart';
 
 import '../../../Bloc/TrendingQuestionsBloc/trending_questions_bloc.dart';
 import '../../../Widgets/widgets.dart';
@@ -17,6 +18,16 @@ class TrendingScreen extends StatefulWidget {
 }
 
 class _TrendingScreenState extends State<TrendingScreen> {
+  List<TrendingIconModel> icons = [
+    TrendingIconModel(
+        icon: "assets/education.png", onPress: () {}, title: "Education"),
+    TrendingIconModel(icon: "assets/home.png", onPress: () {}, title: "Home"),
+    TrendingIconModel(
+        icon: "assets/information.png", onPress: () {}, title: "Info"),
+    TrendingIconModel(icon: "assets/admin.png", onPress: () {}, title: "Admin"),
+    TrendingIconModel(icon: "assets/alert.png", onPress: () {}, title: "Alert"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -54,13 +65,13 @@ class _TrendingScreenState extends State<TrendingScreen> {
                   ),
                 ),
                 SizedBox(
-                    height: size.height * 0.1,
+                    height: size.height * 0.12,
                     width: size.width,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 6,
+                        itemCount: icons.length,
                         itemBuilder: ((context, index) {
-                          return trendingScrollWidget(context);
+                          return trendingScrollWidget(context, icons[index]);
                         }))),
               ],
             ),

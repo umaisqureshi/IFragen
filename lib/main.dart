@@ -63,7 +63,6 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
           useMaterial3: true,
           accentColor: Colors.white,
-          // primaryColor: const Color(0xff212C51),
           primaryColor: const Color(0xff003811),
           appBarTheme: AppBarTheme(
               backgroundColor: Colors.white,
