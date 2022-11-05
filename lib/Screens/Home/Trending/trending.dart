@@ -26,6 +26,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
         icon: "assets/information.png", onPress: () {}, title: "Info"),
     TrendingIconModel(icon: "assets/admin.png", onPress: () {}, title: "Admin"),
     TrendingIconModel(icon: "assets/alert.png", onPress: () {}, title: "Alert"),
+    TrendingIconModel(icon: "assets/story.png", onPress: () {}, title: "Story"),
   ];
 
   @override
