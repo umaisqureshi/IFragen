@@ -8,7 +8,6 @@ import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Home/mainHome.dart';
 
 import 'package:ifragen/Screens/Splash/splashScreen.dart';
-import 'package:ifragen/Widgets/widgets.dart';
 
 import 'Helper/helper.dart';
 import 'Repo/trendingQuestionsRepo.dart';

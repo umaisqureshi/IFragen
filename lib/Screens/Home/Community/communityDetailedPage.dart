@@ -162,9 +162,10 @@ class _CommunityDetailedPage extends State<CommunityDetailedPage> {
                                           width: 60,
                                           decoration: BoxDecoration(
                                               image: const DecorationImage(
-                                                  image: NetworkImage(
-                                                      "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="),
-                                                  fit: BoxFit.cover),
+                                                image: NetworkImage(
+                                                    "https://media.istockphoto.com/vectors/people-family-together-human-unity-chat-bubble-vector-icon-vector-id1198036466?k=20&m=1198036466&s=612x612&w=0&h=QSpwvOA8_Gwkr8CYqDIvNGhTBurzIYjAkE-dfzlIOO8="),
+                                                fit: BoxFit.cover,
+                                              ),
                                               color: Theme.of(context)
                                                   .primaryColor,
                                               borderRadius:

@@ -45,6 +45,8 @@ dependencies:
   curved_navigation_bar: ^1.0.3
   flutter_profile_picture: ^2.0.0
   image_picker: ^0.8.5+3
+  draggable_bottom_sheet: ^1.0.2
+  cached_network_image: ^3.2.2
 
 
 dev_dependencies:
