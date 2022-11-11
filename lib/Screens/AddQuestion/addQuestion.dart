@@ -150,6 +150,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                   height: 20,
                                 ),
                                 TextField(
+                                  maxLines: 6,
                                   onChanged: (value) {
                                     question.text = value;
                                     setState(() {});
@@ -163,7 +164,7 @@ class _AddQuestionState extends State<AddQuestion> {
                                   ),
                                 ),
                                 SizedBox(
-                                  height: size.height * 0.1,
+                                  height: size.height * 0.06,
                                 ),
                                 Center(
                                   child: GestureDetector(
@@ -200,22 +201,30 @@ class _AddQuestionState extends State<AddQuestion> {
                                                 )));
                                       }
                                     },
-                                    child: Container(
-                                      height: 60,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.35,
-                                      decoration: BoxDecoration(
-                                          color: Theme.of(context).accentColor,
-                                          borderRadius: const BorderRadius.all(
-                                            Radius.circular(30),
-                                          )),
-                                      child: Center(
-                                        child: Text(
-                                          "Ask Now",
-                                          style: GoogleFonts.roboto(
-                                              color: Colors.white,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold),
+                                    child: Card(
+                                      elevation: 4,
+                                      shape: const StadiumBorder(),
+                                      child: Container(
+                                        height: 60,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.35,
+                                        decoration: BoxDecoration(
+                                            color:
+                                                Theme.of(context).accentColor,
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                              Radius.circular(30),
+                                            )),
+                                        child: Center(
+                                          child: Text(
+                                            "Ask Now",
+                                            style: GoogleFonts.roboto(
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                       ),
                                     ),
