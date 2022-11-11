@@ -71,7 +71,7 @@ class _MyProfileState extends State<MyProfile> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -141,24 +141,33 @@ class _MyProfileState extends State<MyProfile> {
                     elevation: 7,
                     shape: const StadiumBorder(),
                     child: Container(
-                      height: 130,
-                      width: 130,
+                      height: 150,
+                      width: 150,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
+                          borderRadius: BorderRadius.circular(70),
                           color: Colors.white),
                       child: CachedNetworkImage(
-                          placeholder: (context, url) =>
-                              CircularProgressIndicator(
-                                color: Theme.of(context)
-                                    .primaryColor
-                                    .withOpacity(0.8),
-                              ),
-                          errorWidget: (context, url, error) => Icon(
-                                Icons.error,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                          imageUrl:
-                              "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=800"),
+                        imageBuilder: (context, imageProvider) => Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        placeholder: (context, url) =>
+                            CircularProgressIndicator(
+                          color:
+                              Theme.of(context).primaryColor.withOpacity(0.8),
+                        ),
+                        errorWidget: (context, url, error) => Icon(
+                          Icons.error,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        imageUrl:
+                            "https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=800",
+                      ),
                     ),
                   ),
                   const SizedBox(
