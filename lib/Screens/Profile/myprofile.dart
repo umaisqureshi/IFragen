@@ -334,22 +334,28 @@ class _ProfileEditTileWidgetState extends State<ProfileEditTileWidget> {
                     Positioned(
                       right: -15,
                       top: -25,
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isEdit = !isEdit;
-                          });
-                        },
-                        child: Container(
-                          height: 30,
-                          width: 30,
-                          decoration: BoxDecoration(
+                      child: Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isEdit = !isEdit;
+                            });
+                          },
+                          child: Container(
+                            key: widget.key,
+                            height: 30,
+                            width: 30,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Icon(
+                              isEdit ? Icons.check : Icons.edit,
                               color: Theme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Icon(
-                            isEdit ? Icons.check : Icons.edit,
-                            color: Colors.white,
-                            size: 15,
+                              size: 15,
+                            ),
                           ),
                         ),
                       ),
