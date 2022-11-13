@@ -288,6 +288,7 @@ class _ProfileEditTileWidgetState extends State<ProfileEditTileWidget> {
                     isEdit
                         ? TextField(
                             textAlign: TextAlign.justify,
+                            showCursor: true,
                             cursorColor: Theme.of(context).primaryColor,
                             onChanged: (value) {},
                             style: GoogleFonts.roboto(
@@ -331,8 +332,8 @@ class _ProfileEditTileWidgetState extends State<ProfileEditTileWidget> {
                                 fontWeight: FontWeight.normal),
                           ),
                     Positioned(
-                      right: -10,
-                      top: -15,
+                      right: -15,
+                      top: -25,
                       child: GestureDetector(
                         onTap: () {
                           setState(() {

@@ -278,7 +278,6 @@ class _QuestionDetailedPageState extends State<QuestionDetailedPage> {
                     ),
                   ),
                 ),
-
                 Card(
                   elevation: 8,
                   borderOnForeground: true,
@@ -329,6 +328,8 @@ class _QuestionDetailedPageState extends State<QuestionDetailedPage> {
                                     fontSize: 12,
                                     fontWeight: FontWeight.normal),
                                 decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 0.0, horizontal: 10.0),
                                   focusColor: Colors.white,
                                   suffixIcon: Icon(
                                     Icons.search,
@@ -450,7 +451,6 @@ class _QuestionDetailedPageState extends State<QuestionDetailedPage> {
                     ),
                   ),
                 ),
-              
               ],
             ),
           )),

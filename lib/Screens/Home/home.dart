@@ -85,6 +85,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                   color: Theme.of(context).primaryColor,
                                   size: 20,
                                 ),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 0.0, horizontal: 10.0),
                                 border: OutlineInputBorder(
                                   borderSide: const BorderSide(
                                       color: Colors.white, width: 1.0),
