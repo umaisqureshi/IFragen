@@ -278,6 +278,7 @@ class _QuestionDetailedPageState extends State<QuestionDetailedPage> {
                     ),
                   ),
                 ),
+
                 Card(
                   elevation: 8,
                   borderOnForeground: true,
@@ -449,6 +450,7 @@ class _QuestionDetailedPageState extends State<QuestionDetailedPage> {
                     ),
                   ),
                 ),
+              
               ],
             ),
           )),
