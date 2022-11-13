@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:draggable_bottom_sheet/draggable_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ifragen/Helper/helper.dart';
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -18,7 +19,7 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: DraggableBottomSheet(
-        minExtent: 70,
+        minExtent: 80,
         useSafeArea: false,
         curve: Curves.easeIn,
         previewWidget: Container(
@@ -27,15 +28,26 @@ class _MyProfileState extends State<MyProfile> {
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20), topRight: Radius.circular(20))),
           child: SizedBox(
-            height: 50,
             width: double.infinity,
             child: Center(
-              child: Text(
-                "My Information",
-                style: GoogleFonts.roboto(
-                    color: Theme.of(context).accentColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.normal),
+              child: Column(
+                children: [
+                  const Icon(
+                    Icons.drag_handle,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "My Information".toUpperCase(),
+                    style: GoogleFonts.roboto(
+                        color: Theme.of(context).accentColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
             ),
           ),
@@ -47,20 +59,181 @@ class _MyProfileState extends State<MyProfile> {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20))),
-            child: Column(
+            child: ListView(
               children: [
                 const SizedBox(
                   height: 20,
                 ),
-                Center(
-                  child: Text(
-                    "USER INFORMATION",
-                    style: GoogleFonts.roboto(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 80,
+                        child: Text(
+                          "Username:",
+                          style: GoogleFonts.roboto(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        HelperClass.getUserNameFromSF().toString(),
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
-                )
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 80,
+                        child: Text(
+                          "Email:",
+                          style: GoogleFonts.roboto(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        HelperClass.getUserEmail().toString(),
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 80,
+                        child: Text(
+                          "Semester:",
+                          style: GoogleFonts.roboto(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        HelperClass.getUserEmail().toString(),
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 80,
+                        child: Text(
+                          "University:",
+                          style: GoogleFonts.roboto(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        HelperClass.getUserEmail().toString(),
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 80,
+                        child: Text(
+                          "Country:",
+                          style: GoogleFonts.roboto(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Text(
+                        HelperClass.getUserEmail().toString(),
+                        style: GoogleFonts.roboto(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.3),
+                  child: Card(
+                    elevation: 5,
+                    shape: const StadiumBorder(),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15.0, horizontal: 20),
+                        child: Center(
+                          child: Text(
+                            "Edit",
+                            style: GoogleFonts.roboto(
+                                color: Theme.of(context).primaryColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
