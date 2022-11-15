@@ -8,6 +8,7 @@ import 'package:ifragen/Models/trendingIconModel.dart';
 import '../../../Bloc/TrendingQuestionsBloc/trending_questions_bloc.dart';
 import '../../../Widgets/widgets.dart';
 import '../../AddQuestion/addQuestion.dart';
+import '../../AddQuestion/questionDetail.dart';
 import '../Widgets/widgets.dart';
 
 class TrendingScreen extends StatefulWidget {

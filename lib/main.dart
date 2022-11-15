@@ -67,7 +67,8 @@ class _MyAppState extends State<MyApp> {
               elevation: 0,
               titleTextStyle: GoogleFonts.roboto(
                   color: Theme.of(context).primaryColor, fontSize: 25))),
-      home: _isSignedIn ? const MainHome() : const SplashScreen(),
+      // home: _isSignedIn ? const MainHome() : const SplashScreen(),
+      home: const MainHome(),
     );
     //  home: const CreateCommunity());
   }
