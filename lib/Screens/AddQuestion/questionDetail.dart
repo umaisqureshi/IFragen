@@ -179,6 +179,7 @@ class _QuestionDetailedPageState extends State<QuestionDetailedPage> {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.57,
                           child: ListView.builder(
+                            key: const PageStorageKey<String>("page"),
                             shrinkWrap: true,
                             itemCount: 30,
                             itemBuilder: ((context, index) {

@@ -114,6 +114,7 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
       ),
       backgroundColor: Colors.white,
       body: ListView.builder(
+          key: const PageStorageKey<String>("page"),
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           itemCount: 5,

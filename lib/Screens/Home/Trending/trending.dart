@@ -89,6 +89,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                 // }
                 if (state is TrendingQuestionsLoaded) {
                   return ListView.builder(
+                      key: const PageStorageKey<String>("page"),
                       physics: const BouncingScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: 5,

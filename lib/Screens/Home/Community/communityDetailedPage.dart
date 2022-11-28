@@ -135,6 +135,7 @@ class _CommunityDetailedPage extends State<CommunityDetailedPage> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.57,
                         child: ListView.builder(
+                            key: const PageStorageKey<String>("page"),
                             shrinkWrap: true,
                             physics: const BouncingScrollPhysics(),
                             itemCount: 20,

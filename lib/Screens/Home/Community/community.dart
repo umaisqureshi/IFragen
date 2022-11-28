@@ -55,6 +55,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
             GetCommunitiesModel community = state.getAllCommunities;
             if (community.communities.isNotEmpty) {
               return ListView.builder(
+                key: const PageStorageKey<String>("page"),
                 itemCount: community.communities.length,
                 itemBuilder: ((context, index) {
                   return Padding(
