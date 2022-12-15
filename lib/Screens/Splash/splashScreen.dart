@@ -25,22 +25,6 @@ class SplashScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.5,
               ),
-              // Container(
-              //   height: 100,
-              //   width: 100,
-              //   decoration: BoxDecoration(
-              //       image: const DecorationImage(
-              //           image: AssetImage(
-              //             "assets/splashicon.png",
-              //           ),
-              //           opacity: 0.7,
-              //           fit: BoxFit.cover),
-              //       color: Theme.of(context).primaryColor,
-              //       borderRadius: const BorderRadius.all(Radius.circular(40))),
-              // ),
-              // const SizedBox(
-              //   height: 8,
-              // ),
               Text(
                 "What are you looking for?\nTrust yourself that you can do it and find it.",
                 style: GoogleFonts.roboto(
