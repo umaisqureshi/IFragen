@@ -1,13 +1,11 @@
 import 'dart:convert';
-
 import 'package:http/http.dart';
-import 'package:ifragen/Constant/constant.dart';
 import 'package:ifragen/Helper/helper.dart';
 
 class TrendingQuestionRepo {
   Future trendingQuestion() async {
     var token = await HelperClass.getUserAccessToken();
-    Response response = await get(Uri.parse(LOGIN_USER_API), headers: {
+    Response response = await get(Uri.parse(""), headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization': 'Bearer $token',

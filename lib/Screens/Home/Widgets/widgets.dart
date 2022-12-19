@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Models/trendingIconModel.dart';
 
-import '../../../Models/getCommunitiesModel.dart';
-
 Padding trendingScrollWidget(BuildContext context, TrendingIconModel data) {
   return Padding(
     padding: const EdgeInsets.all(4.0),
@@ -18,7 +16,7 @@ Padding trendingScrollWidget(BuildContext context, TrendingIconModel data) {
               height: 60,
               width: 60,
               decoration: BoxDecoration(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.secondary,
                   borderRadius: const BorderRadius.all(Radius.circular(50))),
               child: Center(
                 child: Image.asset(

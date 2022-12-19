@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Constant/constant.dart';
 import 'package:ifragen/Models/getCommunitiesModel.dart';
 
 class CommunityDetailedPage extends StatefulWidget {
@@ -15,7 +14,7 @@ class _CommunityDetailedPage extends State<CommunityDetailedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Stack(
@@ -106,7 +105,7 @@ class _CommunityDetailedPage extends State<CommunityDetailedPage> {
                                 decoration: BoxDecoration(
                                     color: Theme.of(context).primaryColor,
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
+                                      const BorderRadius.all(Radius.circular(10))),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -144,7 +143,7 @@ class _CommunityDetailedPage extends State<CommunityDetailedPage> {
                                 padding: const EdgeInsets.all(5),
                                 child: Card(
                                   elevation: 1,
-                                  shape: RoundedRectangleBorder(),
+                                  shape: const RoundedRectangleBorder(),
                                   child: Container(
                                     height: 70,
                                     color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class NoWifiWidget extends StatelessWidget {
   String msg;
   Color color;
@@ -36,22 +37,24 @@ class NoWifiWidget extends StatelessWidget {
         Text(
           msg,
           style: GoogleFonts.roboto(
-              color: this.color,
-              //color: Colors.white,
-              fontSize: 22,
-              fontWeight: FontWeight.bold),
+              color: color, fontSize: 22, fontWeight: FontWeight.bold),
         ),
       ],
     );
   }
 }
 
+// ignore: must_be_immutable
 class PostWidget extends StatelessWidget {
   final String image, name, email;
+  final int likes, dislike, comments;
   const PostWidget(
       {required this.email,
       required this.image,
       required this.name,
+      required this.likes,
+      required this.dislike,
+      required this.comments,
       super.key});
 
   @override
@@ -67,9 +70,6 @@ class PostWidget extends StatelessWidget {
           width: size.width * 0.96,
           decoration: const BoxDecoration(
             color: Colors.white,
-            // borderRadius: BorderRadius.all(
-            //   Radius.circular(30),
-            //  ),
           ),
           child: Column(
             children: [
@@ -143,21 +143,21 @@ class PostWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   iconsAndTextButton(
-                      234,
+                      likes,
                       const Icon(
                         Icons.arrow_upward,
                         color: Colors.greenAccent,
                       ),
                       context),
                   iconsAndTextButton(
-                      45,
+                      dislike,
                       const Icon(
                         Icons.arrow_downward,
                         color: Colors.red,
                       ),
                       context),
                   iconsAndTextButton(
-                      22,
+                      comments,
                       const Icon(
                         Icons.comment,
                         color: Colors.blue,
@@ -184,7 +184,7 @@ Widget iconsAndTextButton(
       IconButton(
         onPressed: null,
         icon: icon,
-        color: Theme.of(context).accentColor,
+        color: Theme.of(context).colorScheme.secondary,
       ),
       Text(
         count.toString(),
@@ -196,8 +196,6 @@ Widget iconsAndTextButton(
     ],
   );
 }
-
-
 
 class ProfileEditTileWidget extends StatefulWidget {
   final String title, value;

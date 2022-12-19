@@ -57,8 +57,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                 width: 50,
                                 decoration: BoxDecoration(
                                     color: Theme.of(context).primaryColor,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10))),
                                 child: const Icon(
                                   Icons.menu,
                                   color: Colors.white,
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           GestureDetector(
                             onTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: ((context) => MyProfile())));
+                                  builder: ((context) => const MyProfile())));
                             },
                             child: Card(
                               elevation: 10,
@@ -125,8 +125,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                 width: 50,
                                 decoration: BoxDecoration(
                                     color: Theme.of(context).primaryColor,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10))),
                                 child: const Icon(
                                   Icons.person,
                                   color: Colors.white,
@@ -140,7 +140,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     TabBar(
                         controller: _tabController,
                         indicatorSize: TabBarIndicatorSize.tab,
-                        indicatorColor: Theme.of(context).accentColor,
+                        indicatorColor: Theme.of(context).colorScheme.secondary,
                         indicatorWeight: 3,
                         tabs: const [
                           Tab(

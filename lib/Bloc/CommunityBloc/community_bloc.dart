@@ -23,7 +23,7 @@ class CommunityBloc extends Bloc<CommunityEvent, CommunityState> {
       } catch (e) {
         if (e.toString() == "Exception: Unauthorized") {
           GetAccessTokenModel token =
-              await UserRepo().getAccessTokenfromRefreshToken();
+              await UserRepo().getAccessTokenFromRefreshToken();
           HelperClass.saveUserAccessToken(token.accessToken);
           HelperClass.saveUserRefreshToken(token.refreshToken);
           GetCommunitiesModel communities =

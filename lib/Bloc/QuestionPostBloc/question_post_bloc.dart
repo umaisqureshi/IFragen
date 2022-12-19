@@ -11,7 +11,7 @@ class QuestionPostBloc extends Bloc<QuestionPostEvent, QuestionPostState> {
     on<QuestionPostEvent>((event, emit) async {
       if (event is QuestionPost) {
         if (event.category.isEmpty || event.question.isEmpty) {
-          emit(QuestionErrorState("Question is empty"));
+          emit(const QuestionErrorState("Question is empty"));
         } else {
           emit(QuestionPostInitial());
 

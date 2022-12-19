@@ -129,6 +129,9 @@ class _CommunityMainScreenState extends State<CommunityMainScreen> {
                 email: "umaisqureshi26@gmail.com",
                 name: "Umais Qureshi",
                 image: "assets/splashicon.png",
+                likes: 24,
+                comments: 234,
+                dislike: 45,
               ),
             );
           })),

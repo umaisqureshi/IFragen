@@ -27,7 +27,6 @@ class RegisterBloc extends Bloc<RegisterBlocEvent, RegisterBlocState> {
             await HelperClass.saveUserLoggedInStatus(true);
             emit(UserCreatedState(user));
           } catch (e) {
-            print(e.toString());
             emit(RegisterErrorState(e.toString()));
           }
         }

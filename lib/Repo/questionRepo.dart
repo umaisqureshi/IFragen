@@ -5,7 +5,7 @@ import 'package:ifragen/Constant/constant.dart';
 
 class QuestionRepo {
   Future postQuestion(String category, String question) async {
-    Response response = await post(Uri.parse(LOGIN_USER_API),
+    Response response = await post(Uri.parse(""),
         body: {'category': category, 'question': question});
     if (response.statusCode == 200 || response.statusCode == 201) {
       final result = jsonDecode(response.body);

@@ -19,11 +19,7 @@ class CreateCommunityEvent extends CommunityEvent {
       {required this.description,
       required this.isPublic,
       required this.name,
-      required this.picture
-      });
+      required this.picture});
   @override
-  List<Object?> get props => [name,
-   description,
-   // picture,
-     isPublic];
+  List<Object?> get props => [name, description, picture, isPublic];
 }

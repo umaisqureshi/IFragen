@@ -83,7 +83,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                               children: [
                                 Card(
                                   elevation: 4,
-                                  shape: StadiumBorder(),
+                                  shape: const StadiumBorder(),
                                   child: Container(
                                       height: 80,
                                       width: 80,
@@ -226,15 +226,12 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                           Center(
                             child: GestureDetector(
                               onTap: () async {
-                                print(isPublicBool);
-                                BlocProvider.of<CommunityBloc>(context)
-                                    .add(CreateCommunityEvent(
-                                  description: description.text,
-                                  isPublic: isPublicBool,
-                                  name: name.text,
-
-                                  picture: image!.path
-                                ));
+                                BlocProvider.of<CommunityBloc>(context).add(
+                                    CreateCommunityEvent(
+                                        description: description.text,
+                                        isPublic: isPublicBool,
+                                        name: name.text,
+                                        picture: image!.path));
                               },
                               child: Card(
                                 elevation: 10,
@@ -244,7 +241,9 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.4,
                                   decoration: BoxDecoration(
-                                      color: Theme.of(context).accentColor,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
                                       borderRadius: const BorderRadius.all(
                                         Radius.circular(30),
                                       )),

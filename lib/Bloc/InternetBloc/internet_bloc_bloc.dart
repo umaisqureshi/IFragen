@@ -9,7 +9,7 @@ part 'internet_bloc_state.dart';
 
 class InternetBloc extends Bloc<InternetBlocEvent, InternetBlocState> {
   InternetBloc() : super(InternetInitial()) {
-    StreamSubscription subscription;
+   
     on<ConnectedEvent>((event, emit) {
       emit(const InternetConnected("Internet Connected"));
     });
@@ -17,7 +17,7 @@ class InternetBloc extends Bloc<InternetBlocEvent, InternetBlocState> {
     on<NotConnectedEvent>((event, emit) {
       emit(const InternetNotConnected("Internet Not Connected"));
     });
-
+ StreamSubscription subscription;
     subscription = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {

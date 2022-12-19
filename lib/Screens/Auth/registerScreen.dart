@@ -23,14 +23,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String fullName = "";
   bool loading = false;
   final _registerFormKey = GlobalKey<FormState>();
-// a-zA-Z0-9
+
   bool isValidEmail(String email) {
     final emailRegExp = RegExp(r"^[a-zA-Z0-9.]+@[fau]+\.[de]+");
     return emailRegExp.hasMatch(email);
   }
-
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

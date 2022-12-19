@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Models/trendingIconModel.dart';
@@ -45,8 +43,8 @@ class _TrendingScreenState extends State<TrendingScreen> {
           shape: const StadiumBorder(),
           child: const Icon(Icons.add),
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: ((context) => AddQuestion())));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: ((context) => const AddQuestion())));
           },
         ),
         body: ListView(
@@ -105,6 +103,9 @@ class _TrendingScreenState extends State<TrendingScreen> {
                             email: "umaisqureshi26@gmail.com",
                             name: "Umais Qureshi",
                             image: "assets/splashicon.png",
+                            likes: 67,
+                            comments: 324,
+                            dislike: 12,
                           ),
                         );
                       }));
@@ -135,6 +136,9 @@ class _TrendingScreenState extends State<TrendingScreen> {
                           email: "umaisqureshi26@gmail.com",
                           name: "Umais Qureshi",
                           image: "assets/splashicon.png",
+                          likes: 110,
+                          comments: 675,
+                          dislike: 34,
                         ),
                       );
                     }));

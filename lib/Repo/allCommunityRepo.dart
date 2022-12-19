@@ -40,7 +40,6 @@ class CommunityRepo {
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       final result = jsonDecode(await response.stream.bytesToString());
-      print(result.toString());
       return createCommunityModelFromJson(result);
     } else {
       throw Exception(response.reasonPhrase);

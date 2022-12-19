@@ -10,6 +10,7 @@ class QuestionPostInitial extends QuestionPostState {
   List<Object?> get props => [];
 }
 class QuestionPosted extends QuestionPostState{
+  
   @override
   List<Object?> get props => [];
 }
