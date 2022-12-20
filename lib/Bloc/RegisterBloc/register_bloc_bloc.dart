@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:ifragen/Helper/helper.dart';
 import 'package:ifragen/Models/userRegisterModel.dart';
 
 import '../../../Repo/userRepo.dart';
+import '../../Helper/helper.dart';
 
 part 'register_bloc_event.dart';
 part 'register_bloc_state.dart';

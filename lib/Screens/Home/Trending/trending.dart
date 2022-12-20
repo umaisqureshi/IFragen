@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Models/trendingIconModel.dart';
 
 import '../../../Bloc/TrendingQuestionsBloc/trending_questions_bloc.dart';
-import '../../../Widgets/widgets.dart';
+import '../../../Widgets/postWidget.dart';
 import '../../AddQuestion/addQuestion.dart';
 import '../../AddQuestion/questionDetail.dart';
 import '../Widgets/widgets.dart';
@@ -77,14 +77,6 @@ class _TrendingScreenState extends State<TrendingScreen> {
             ),
             BlocBuilder<TrendingQuestionsBloc, TrendingQuestionsState>(
               builder: (context, state) {
-                // if (state is TrendingQuestionsLoading) {
-                //   return Center(
-                //     child: CircularProgressIndicator(
-                //       color: Theme.of(context).primaryColor,
-                //       strokeWidth: 4,
-                //     ),
-                //   );
-                // }
                 if (state is TrendingQuestionsLoaded) {
                   return ListView.builder(
                       key: const PageStorageKey<String>("page"),
@@ -110,15 +102,7 @@ class _TrendingScreenState extends State<TrendingScreen> {
                         );
                       }));
                 }
-                // return Center(
-                //   child: Text(
-                //     "Trending Posts",
-                //     style: GoogleFonts.roboto(
-                //         color: Theme.of(context).primaryColor,
-                //         fontSize: 18,
-                //         fontWeight: FontWeight.bold),
-                //   ),
-                // );
+               
 
                 //WE WILL WORK ON IT AFTER API'S ARE IMPLEMENTED
                 return ListView.builder(

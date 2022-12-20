@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Helper/helper.dart';
 import 'package:ifragen/Screens/Profile/myprofile.dart';
 
+import '../../Helper/helper.dart';
 import 'Community/community.dart';
 import 'Trending/trending.dart';
 

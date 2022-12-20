@@ -18,7 +18,8 @@ class InternetBloc extends Bloc<InternetBlocEvent, InternetBlocState> {
       emit(const InternetNotConnected("Internet Not Connected"));
     });
  StreamSubscription subscription;
-    subscription = Connectivity()
+    subscription = 
+    Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
       if (result == ConnectivityResult.wifi ||

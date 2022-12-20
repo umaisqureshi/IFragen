@@ -5,5 +5,6 @@ class TrendingIconModel {
   String title;
   VoidCallback onPress;
 
-  TrendingIconModel({required this.icon, required this.onPress , required this.title});
+  TrendingIconModel(
+      {required this.icon, required this.onPress, required this.title});
 }

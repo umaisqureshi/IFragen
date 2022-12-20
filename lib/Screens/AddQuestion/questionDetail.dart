@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../Utilis/inputdecoration.dart';
-import '../../Widgets/widgets.dart';
+import '../../Widgets/customwidgets.dart';
 
 class QuestionDetailedPage extends StatefulWidget {
   final String name;

@@ -8,7 +8,7 @@ import 'package:ifragen/Screens/Auth/loginScreen.dart';
 import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
 import '../../Bloc/RegisterBloc/register_bloc_bloc.dart';
 import '../../Utilis/inputdecoration.dart';
-import '../../Widgets/widgets.dart';
+import '../../Widgets/noWifiWidget.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});

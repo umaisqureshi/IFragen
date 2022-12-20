@@ -4,7 +4,7 @@ import 'package:ifragen/Screens/Home/Community/communityDetailedPage.dart';
 import '../../../Constant/constant.dart';
 import '../../../Models/getCommunitiesModel.dart';
 import '../../../Utilis/inputdecoration.dart';
-import '../../../Widgets/widgets.dart';
+import '../../../Widgets/postWidget.dart';
 import '../../AddQuestion/questionDetail.dart';
 
 class CommunityMainScreen extends StatefulWidget {

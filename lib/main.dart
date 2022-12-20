@@ -6,9 +6,9 @@ import 'package:ifragen/Repo/allCommunityRepo.dart';
 import 'package:ifragen/Repo/questionRepo.dart';
 import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Home/mainHome.dart';
-import 'Helper/helper.dart';
 import 'Repo/trendingQuestionsRepo.dart';
 import 'Screens/Splash/splashScreen.dart';
+import 'Helper/helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,9 +65,10 @@ class _MyAppState extends State<MyApp> {
               centerTitle: true,
               elevation: 0,
               titleTextStyle: GoogleFonts.roboto(
-                  color: Theme.of(context).primaryColor, fontSize: 25)), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white)),
+                  color: Theme.of(context).primaryColor, fontSize: 25)),
+          colorScheme:
+              ColorScheme.fromSwatch().copyWith(secondary: Colors.white)),
       home: _isSignedIn ? const MainHome() : const SplashScreen(),
-      // home: const MainHome(),
     );
     //  home: const CreateCommunity());
   }

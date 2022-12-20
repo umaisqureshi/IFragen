@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,7 +6,7 @@ import 'package:ifragen/Repo/questionRepo.dart';
 import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
 import '../../Bloc/QuestionPostBloc/question_post_bloc.dart';
 import '../../Utilis/inputdecoration.dart';
-import '../../Widgets/widgets.dart';
+import '../../Widgets/noWifiWidget.dart';
 
 class AddQuestion extends StatefulWidget {
   const AddQuestion({super.key});
@@ -66,7 +64,7 @@ class _AddQuestionState extends State<AddQuestion> {
               },
               builder: ((context, state) {
                 if (state is QuestionErrorState) {
-                  return Container(child: Text(state.error));
+                  return Text(state.error);
                 } else {
                   return Center(
                     child: Card(

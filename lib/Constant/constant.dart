@@ -5,6 +5,3 @@ const String ALL_COMMUNITIES = END_POINT + "v1/communities";
 const String CREATE_COMMUNITIES = END_POINT + "v1/communities";
 const String GET_ACCESS_TOKEN = END_POINT + "v1/auth/refresh-token";
 const String IMAGE_END_POINT = END_POINT + "v1/uploads/";
-
-
-

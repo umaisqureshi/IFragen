@@ -1,11 +1,10 @@
-import 'package:collection/collection.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HelperClass {
   static String userLoggedInKey = "LOGGEDINKEY";
   static String userNameKey = "USERNAMEKEY";
   static String userEmailKey = "USEREMAILKEY";
-  static String userAcessToken = "USERACCESSTOKEN";
+  static String userAccessToken = "USERACCESSTOKEN";
   static String userRefreshToken = "USERREFRESHTOKEN";
 
   // saving the data to SF
@@ -22,7 +21,7 @@ class HelperClass {
 
   static Future<bool> saveUserAccessToken(String token) async {
     SharedPreferences sf = await SharedPreferences.getInstance();
-    return await sf.setString(userAcessToken, token);
+    return await sf.setString(userAccessToken, token);
   }
 
   static Future<bool> saveUserRefreshToken(String token) async {
@@ -49,7 +48,7 @@ class HelperClass {
 
   static Future<String?> getUserAccessToken() async {
     SharedPreferences sf = await SharedPreferences.getInstance();
-    return sf.getString(userAcessToken);
+    return sf.getString(userAccessToken);
   }
 
   static Future<String?> getUserRefreshToken() async {

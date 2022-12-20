@@ -10,7 +10,8 @@ import 'package:ifragen/Screens/Home/mainHome.dart';
 import '../../Bloc/UserBloc/user_bloc_bloc.dart';
 import '../../Repo/userRepo.dart';
 import '../../Utilis/inputdecoration.dart';
-import '../../Widgets/widgets.dart';
+import '../../Widgets/noWifiWidget.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

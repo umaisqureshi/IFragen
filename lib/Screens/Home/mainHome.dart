@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ifragen/Screens/Home/home.dart';
 import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
-import '../../Widgets/widgets.dart';
+import '../../Widgets/noWifiWidget.dart';
 
 class MainHome extends StatefulWidget {
   const MainHome({super.key});

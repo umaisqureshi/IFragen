@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final createCommunityModel = createCommunityModelFromJson(jsonString);
-
 import 'dart:convert';
 
 CreateCommunityModel createCommunityModelFromJson(str) =>

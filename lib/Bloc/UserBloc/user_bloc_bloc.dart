@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:ifragen/Models/userLoginModel.dart';
 import 'package:ifragen/Repo/userRepo.dart';
 import 'package:meta/meta.dart';
-
 import '../../Helper/helper.dart';
 
 part 'user_bloc_event.dart';
