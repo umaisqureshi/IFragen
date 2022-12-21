@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Repo/allCommunityRepo.dart';
 import 'package:ifragen/Repo/questionRepo.dart';
 import 'package:ifragen/Repo/userRepo.dart';
+import 'package:ifragen/Screens/Home/home.dart';
 import 'package:ifragen/Screens/Home/mainHome.dart';
 import 'Repo/trendingQuestionsRepo.dart';
 import 'Screens/Splash/splashScreen.dart';
@@ -68,7 +69,8 @@ class _MyAppState extends State<MyApp> {
                   color: Theme.of(context).primaryColor, fontSize: 25)),
           colorScheme:
               ColorScheme.fromSwatch().copyWith(secondary: Colors.white)),
-      home: _isSignedIn ? const MainHome() : const SplashScreen(),
+       home: _isSignedIn ? const MainHome() : const SplashScreen(),
+     // home: const Home(),
     );
     //  home: const CreateCommunity());
   }

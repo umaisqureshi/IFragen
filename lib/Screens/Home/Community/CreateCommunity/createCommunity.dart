@@ -135,7 +135,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
                             height: 10,
                           ),
                           TextField(
-                            maxLength: 20,
+                            maxLength: 30,
                             onChanged: (value) {
                               name.text = value;
                               setState(() {});

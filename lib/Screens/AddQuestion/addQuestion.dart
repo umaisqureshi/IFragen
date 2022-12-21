@@ -223,7 +223,8 @@ class _AddQuestionState extends State<AddQuestion> {
                                                 0.35,
                                             decoration: BoxDecoration(
                                                 color: Theme.of(context)
-                                                    .accentColor,
+                                                    .colorScheme
+                                                    .secondary,
                                                 borderRadius:
                                                     const BorderRadius.all(
                                                   Radius.circular(30),

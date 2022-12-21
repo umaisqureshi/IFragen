@@ -42,14 +42,14 @@ class _CommunityScreenState extends State<CommunityScreen> {
         ),
         body: BlocConsumer<CommunityBloc, CommunityState>(
             builder: ((context, state) {
-          if (state is CommunityInitial) {
-            return Center(
-              child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor,
-                strokeWidth: 4,
-              ),
-            );
-          }
+          // if (state is CommunityInitial) {
+          //   return Center(
+          //     child: CircularProgressIndicator(
+          //       color: Theme.of(context).primaryColor,
+          //       strokeWidth: 4,
+          //     ),
+          //   );
+          // }
 
           if (state is CommunityLoadedState) {
             GetCommunitiesModel community = state.getAllCommunities;

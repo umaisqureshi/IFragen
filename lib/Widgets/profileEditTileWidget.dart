@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfileEditTileWidget extends StatefulWidget {
-  final String title, value;
+  String? title, value;
 
-  const ProfileEditTileWidget({
+  ProfileEditTileWidget({
     required this.title,
     required this.value,
     Key? key,
@@ -25,7 +25,7 @@ class _ProfileEditTileWidgetState extends State<ProfileEditTileWidget> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
-            widget.title,
+            widget.title!,
             style: GoogleFonts.roboto(
                 color: Theme.of(context).primaryColor,
                 fontSize: 14,
@@ -104,7 +104,7 @@ class _ProfileEditTileWidgetState extends State<ProfileEditTileWidget> {
                             ),
                           )
                         : Text(
-                            widget.value,
+                            widget.value!,
                             style: GoogleFonts.roboto(
                                 color: Colors.black54,
                                 fontSize: 14,

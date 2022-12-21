@@ -10,8 +10,7 @@ class CustomException implements Exception {
 }
 
 class FetchDataException extends CustomException {
-  FetchDataException([String? message])
-      : super(message, "");
+  FetchDataException([String? message]) : super(message, "");
 }
 
 class BadRequestException extends CustomException {
@@ -26,10 +25,11 @@ class InvalidInputException extends CustomException {
   InvalidInputException([String? message]) : super(message, "Invalid Input: ");
 }
 
-class InternalServerError extends CustomException{
-  InternalServerError([String? message]) : super(message, "Internal Server Error");
+class InternalServerError extends CustomException {
+  InternalServerError([String? message])
+      : super(message, "Internal Server Error");
 }
 
-class ConflictError extends CustomException{
+class ConflictError extends CustomException {
   ConflictError([String? message]) : super(message, "");
 }

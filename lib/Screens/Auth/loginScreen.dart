@@ -12,7 +12,6 @@ import '../../Repo/userRepo.dart';
 import '../../Utilis/inputdecoration.dart';
 import '../../Widgets/noWifiWidget.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -291,11 +290,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 recognizer:
                                                     TapGestureRecognizer()
                                                       ..onTap = () {
-                                                        Navigator.of(context).push(
-                                                            MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        const RegisterScreen()));
+                                                        Navigator.of(context)
+                                                            .pushReplacement(
+                                                                MaterialPageRoute(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            const RegisterScreen()));
                                                       },
                                                 style: GoogleFonts.roboto(
                                                     color: Theme.of(context)

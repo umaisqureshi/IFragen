@@ -1,19 +1,15 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart';
-
 import '../Constant/constant.dart';
 import '../Exception/customExceptions.dart';
-import '../Helper/helper.dart';
 import '../Models/getAccesstokenModel.dart';
 import '../Models/userLoginModel.dart';
 import '../Models/userRegisterModel.dart';
 
-class UserApi{
-
-Future<UserLoginModel> getUser(String email, String password) async {
+class UserApi {
+  Future<UserLoginModel> loginUser(String email, String password) async {
     try {
       Response response = await post(Uri.parse(LOGIN_USER_API),
           body: {'email': email, 'password': password});
@@ -24,21 +20,9 @@ Future<UserLoginModel> getUser(String email, String password) async {
         throw Exception(response.reasonPhrase);
       }
     } on TimeoutException {
-      Map<String, dynamic> loop = {'message': 'Request Timeout'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Request Timeout');
     } on SocketException {
-      Map<String, dynamic> loop = {'message': 'Network Error'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Network Error');
     }
   }
 
@@ -54,30 +38,17 @@ Future<UserLoginModel> getUser(String email, String password) async {
         throw Exception(response.reasonPhrase);
       }
     } on TimeoutException {
-      Map<String, dynamic> loop = {'message': 'Request Timeout'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Request Timeout');
     } on SocketException {
-      Map<String, dynamic> loop = {'message': 'Network Error'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Network Error');
     }
   }
 
-  Future<GetAccessTokenModel> getAccessTokenFromRefreshToken() async {
-    var email = await HelperClass.getUserEmail();
-    var token = await HelperClass.getUserRefreshToken();
+  Future<GetAccessTokenModel> getAccessTokenFromRefreshToken(
+      String email, String refreshToken) async {
     try {
       Response response = await post(Uri.parse(GET_ACCESS_TOKEN),
-          body: {'email': email, 'token': token});
+          body: {'email': email, 'token': refreshToken});
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = jsonDecode(response.body);
         return getAccessTokenModelFromJson(result);
@@ -85,24 +56,9 @@ Future<UserLoginModel> getUser(String email, String password) async {
         throw Exception(response.reasonPhrase);
       }
     } on TimeoutException {
-      Map<String, dynamic> loop = {'message': 'Request Timeout'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Request Timeout');
     } on SocketException {
-      Map<String, dynamic> loop = {'message': 'Network Error'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Network Error');
     }
   }
-
-
-
 }

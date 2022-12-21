@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart';
 import 'package:ifragen/Constant/constant.dart';
-
 import '../Exception/customExceptions.dart';
 import '../Helper/helper.dart';
 import '../Models/createCommunityModel.dart';
@@ -34,21 +32,9 @@ class CommunityApi {
         throw Exception(response.reasonPhrase);
       }
     } on TimeoutException {
-      Map<String, dynamic> loop = {'message': 'Request Timeout'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Request Timeout');
     } on SocketException {
-      Map<String, dynamic> loop = {'message': 'Network Error'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Network Error');
     }
   }
 
@@ -66,21 +52,9 @@ class CommunityApi {
         throw Exception(response.reasonPhrase);
       }
     } on TimeoutException {
-      Map<String, dynamic> loop = {'message': 'Request Timeout'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Request Timeout');
     } on SocketException {
-      Map<String, dynamic> loop = {'message': 'Network Error'};
-      Map<String, dynamic> err = {
-        'statusCode': "400",
-        'message': loop,
-      };
-      String error = json.encode(err);
-      throw BadRequestException(error);
+      throw BadRequestException('Network Error');
     }
   }
 }
