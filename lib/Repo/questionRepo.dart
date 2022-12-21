@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:ifragen/ApiServices/questionApi.dart';
 
 class QuestionRepo {
-  QuestionApi questionApi = QuestionApi();
+ final QuestionApi _questionApi = QuestionApi();
   Future postQuestion(String category, String question) async {
-    return questionApi.postQuestion(category, question);
+    return _questionApi.postQuestion(category, question);
   }
 }

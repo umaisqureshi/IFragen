@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:http/http.dart';
 import '../Constant/constant.dart';
 import '../Exception/customExceptions.dart';
+import '../Helper/helper.dart';
 import '../Models/getAccesstokenModel.dart';
 import '../Models/userLoginModel.dart';
 import '../Models/userRegisterModel.dart';
@@ -44,8 +45,9 @@ class UserApi {
     }
   }
 
-  Future<GetAccessTokenModel> getAccessTokenFromRefreshToken(
-      String email, String refreshToken) async {
+  Future<GetAccessTokenModel> getAccessTokenFromRefreshToken() async {
+    var email = await HelperClass.getUserEmail();
+    var refreshToken = await HelperClass.getUserRefreshToken();
     try {
       Response response = await post(Uri.parse(GET_ACCESS_TOKEN),
           body: {'email': email, 'token': refreshToken});

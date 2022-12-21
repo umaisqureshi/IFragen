@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart';
 import '../Exception/customExceptions.dart';
+import '../Helper/helper.dart';
 
 class TrendingApi {
-  Future trendingQuestion(String token) async {
+  Future trendingQuestion() async {
+    var token = await HelperClass.getUserAccessToken();
     try {
       Response response = await get(Uri.parse(""), headers: {
         'Content-Type': 'application/json',
