@@ -9,15 +9,15 @@ class UserRepo {
   final _userApi = getIt.get<UserApi>();
 
   Future<UserLoginModel> getUser(String email, String password) async {
-    return await _userApi.loginUser(email, password);
+    return _userApi.loginUser(email, password);
   }
 
   Future<UserModel> registerUser(
       String email, String password, String name) async {
-    return await _userApi.registerUser(email, password, name);
+    return _userApi.registerUser(email, password, name);
   }
 
   Future<GetAccessTokenModel> getAccessTokenFromRefreshToken() async {
-    return await _userApi.getAccessTokenFromRefreshToken();
+    return _userApi.getAccessTokenFromRefreshToken();
   }
 }

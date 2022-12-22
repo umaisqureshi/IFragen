@@ -5,6 +5,6 @@ import '../DependencyProvider/dependencyProvider.dart';
 class TrendingQuestionRepo {
   final _trendingApi = getIt.get<TrendingApi>();
   Future trendingQuestion() async {
-    return await _trendingApi.trendingQuestion();
+    return  _trendingApi.trendingQuestion();
   }
 }

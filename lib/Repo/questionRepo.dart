@@ -5,6 +5,6 @@ import '../DependencyProvider/dependencyProvider.dart';
 class QuestionRepo {
   final _questionApi = getIt.get<QuestionApi>();
   Future postQuestion(String category, String question) async {
-    return await _questionApi.postQuestion(category, question);
+    return  _questionApi.postQuestion(category, question);
   }
 }

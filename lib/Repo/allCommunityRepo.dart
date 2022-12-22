@@ -7,12 +7,12 @@ class CommunityRepo {
   final _communityApi = getIt.get<CommunityApi>();
 
   Future<GetCommunitiesModel> allCommunities() async {
-    return await _communityApi.allCommunities();
+    return  _communityApi.allCommunities();
   }
 
   Future<CreateCommunityModel> createCommunities(
       String name, String description, String picture, bool isPublic) async {
-    return await _communityApi.createCommunities(
+    return _communityApi.createCommunities(
         name, description, picture, isPublic);
   }
 }
