@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     return errorStateWidget(context, state);
                   } else if (state is UserLoadedState) {
                     return AlertDialog(
-                      elevation: 5,
+                      elevation: 9,
                       title: Text(
                         "Welcome",
                         style: GoogleFonts.roboto(

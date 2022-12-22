@@ -58,3 +58,4 @@ Container errorStateWidget(BuildContext context, UserErrorState state) {
     ),
   );
 }
+
