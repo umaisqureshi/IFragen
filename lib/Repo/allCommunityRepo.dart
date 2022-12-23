@@ -1,18 +1,8 @@
-import 'package:ifragen/ApiServices/communityApi.dart';
 import 'package:ifragen/Models/getCommunitiesModel.dart';
-import '../DependencyProvider/dependencyProvider.dart';
 import '../Models/createCommunityModel.dart';
 
-class CommunityRepo {
-  final _communityApi = getIt.get<CommunityApi>();
-
-  Future<GetCommunitiesModel> allCommunities() async {
-    return  _communityApi.allCommunities();
-  }
-
+abstract class CommunityRepo {
+  Future<GetCommunitiesModel> allCommunities();
   Future<CreateCommunityModel> createCommunities(
-      String name, String description, String picture, bool isPublic) async {
-    return _communityApi.createCommunities(
-        name, description, picture, isPublic);
-  }
+      String name, String description, String picture, bool isPublic);
 }

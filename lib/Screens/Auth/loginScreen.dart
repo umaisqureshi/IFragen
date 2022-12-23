@@ -36,8 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              UserLoginBloc(RepositoryProvider.of<UserRepo>(context)),
+          create: (context) => UserLoginBloc(),
         ),
         BlocProvider(
           create: (context) => InternetBloc(),

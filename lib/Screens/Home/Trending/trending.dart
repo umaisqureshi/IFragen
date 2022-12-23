@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Models/trendingIconModel.dart';
-
 import '../../../Bloc/TrendingQuestionsBloc/trending_questions_bloc.dart';
 import '../../../Widgets/postWidget.dart';
 import '../../AddQuestion/addQuestion.dart';
@@ -102,7 +101,6 @@ class _TrendingScreenState extends State<TrendingScreen> {
                         );
                       }));
                 }
-               
 
                 //WE WILL WORK ON IT AFTER API'S ARE IMPLEMENTED
                 return ListView.builder(

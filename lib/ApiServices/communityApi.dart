@@ -3,12 +3,15 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart';
 import 'package:ifragen/Constant/constant.dart';
+import 'package:ifragen/Repo/allCommunityRepo.dart';
 import '../Exception/customExceptions.dart';
 import '../Helper/helper.dart';
 import '../Models/createCommunityModel.dart';
 import '../Models/getCommunitiesModel.dart';
 
-class CommunityApi {
+class CommunityApi extends CommunityRepo {
+  
+  @override
   Future<CreateCommunityModel> createCommunities(
       String name, String description, String picture, bool isPublic) async {
     var token = await HelperClass.getUserAccessToken();
@@ -38,6 +41,7 @@ class CommunityApi {
     }
   }
 
+  @override
   Future<GetCommunitiesModel> allCommunities() async {
     var token = await HelperClass.getUserAccessToken();
     try {

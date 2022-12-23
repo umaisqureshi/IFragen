@@ -4,8 +4,10 @@ import 'dart:io';
 import 'package:http/http.dart';
 import '../Exception/customExceptions.dart';
 import '../Helper/helper.dart';
+import '../Repo/trendingQuestionsRepo.dart';
 
-class TrendingApi {
+class TrendingApi extends TrendingQuestionRepo{
+  @override
   Future trendingQuestion() async {
     var token = await HelperClass.getUserAccessToken();
     try {

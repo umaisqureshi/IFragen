@@ -3,7 +3,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Auth/loginScreen.dart';
 import '../../Bloc/InternetBloc/internet_bloc_bloc.dart';
 import '../../Bloc/RegisterBloc/register_bloc_bloc.dart';
@@ -34,8 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              RegisterBloc(RepositoryProvider.of<UserRepo>(context)),
+          create: (context) => RegisterBloc(),
         ),
         BlocProvider(
           create: (context) => InternetBloc(),

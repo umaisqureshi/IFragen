@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:ifragen/DependencyProvider/dependencyProvider.dart';
 import 'package:ifragen/Models/getAccesstokenModel.dart';
 import 'package:ifragen/Repo/allCommunityRepo.dart';
 import 'package:ifragen/Repo/userRepo.dart';
@@ -12,22 +13,21 @@ part 'community_event.dart';
 part 'community_state.dart';
 
 class CommunityBloc extends Bloc<CommunityEvent, CommunityState> {
-  CommunityRepo communityRepo;
-  CommunityBloc(this.communityRepo) : super(CommunityInitial()) {
+  final communityRepo = getIt.get<CommunityRepo>();
+  final userRepo = getIt.get<UserRepo>();
+  CommunityBloc() : super(CommunityInitial()) {
     on<GetCommunitiesEvent>((event, emit) async {
       try {
-
         emit(CommunityInitial());
 
         final GetCommunitiesModel allCommunities =
             await communityRepo.allCommunities();
 
         emit(CommunityLoadedState(allCommunities));
-
       } catch (e) {
         if (e.toString() == "Exception: Unauthorized") {
           GetAccessTokenModel token =
-              await UserRepo().getAccessTokenFromRefreshToken();
+              await userRepo.getAccessTokenFromRefreshToken();
           HelperClass.saveUserAccessToken(token.accessToken);
           HelperClass.saveUserRefreshToken(token.refreshToken);
           GetCommunitiesModel communities =
@@ -47,7 +47,6 @@ class CommunityBloc extends Bloc<CommunityEvent, CommunityState> {
                 event.name, event.description, event.picture, event.isPublic);
 
         emit(CommunityCreated(createCommunity));
-        
       } catch (e) {
         emit(CommunityError(e.toString()));
       }

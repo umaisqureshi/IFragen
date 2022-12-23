@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/DependencyProvider/dependencyProvider.dart';
-import 'package:ifragen/Repo/allCommunityRepo.dart';
-import 'package:ifragen/Repo/questionRepo.dart';
-import 'package:ifragen/Repo/userRepo.dart';
 import 'package:ifragen/Screens/Home/mainHome.dart';
-import 'Repo/trendingQuestionsRepo.dart';
 import 'Screens/Splash/splashScreen.dart';
 import 'Helper/helper.dart';
 
@@ -18,13 +13,7 @@ void main() {
     DeviceOrientation.portraitDown,
   ]);
   dependencyLocator();
-  runApp(MultiRepositoryProvider(providers: [
-    RepositoryProvider<UserRepo>(create: (context) => UserRepo()),
-    RepositoryProvider<QuestionRepo>(create: (context) => QuestionRepo()),
-    RepositoryProvider<TrendingQuestionRepo>(
-        create: (context) => TrendingQuestionRepo()),
-    RepositoryProvider<CommunityRepo>(create: (context) => CommunityRepo()),
-  ], child: const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {

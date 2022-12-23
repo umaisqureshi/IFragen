@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:ifragen/DependencyProvider/dependencyProvider.dart';
 import 'package:ifragen/Models/userLoginModel.dart';
 import 'package:ifragen/Repo/userRepo.dart';
 import 'package:meta/meta.dart';
@@ -9,9 +10,9 @@ part 'user_bloc_event.dart';
 part 'user_bloc_state.dart';
 
 class UserLoginBloc extends Bloc<UserBlocEvent, UserBlocState> {
-  UserRepo userRepo;
+  final userRepo = getIt.get<UserRepo>();
 
-  UserLoginBloc(this.userRepo) : super(UserLoadingState()) {
+  UserLoginBloc() : super(UserLoadingState()) {
     on<UserBlocEvent>((event, emit) async {
       if (event is UserCheckEvent) {
         if (event.email.isEmpty || event.password.isEmpty) {

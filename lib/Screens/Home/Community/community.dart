@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Bloc/CommunityBloc/community_bloc.dart';
 import 'package:ifragen/Constant/constant.dart';
 import 'package:ifragen/Models/getCommunitiesModel.dart';
-import 'package:ifragen/Repo/allCommunityRepo.dart';
 import 'package:ifragen/Screens/Home/Community/communityMainPage.dart';
+
 import 'CreateCommunity/createCommunity.dart';
 
 class CommunityScreen extends StatefulWidget {
@@ -22,9 +22,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              CommunityBloc(RepositoryProvider.of<CommunityRepo>(context))
-                ..add(GetCommunitiesEvent()),
+          create: (context) => CommunityBloc()..add(GetCommunitiesEvent()),
         ),
       ],
       child: Scaffold(

@@ -1,13 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:ifragen/DependencyProvider/dependencyProvider.dart';
 import 'package:ifragen/Repo/questionRepo.dart';
 
 part 'question_post_event.dart';
 part 'question_post_state.dart';
 
 class QuestionPostBloc extends Bloc<QuestionPostEvent, QuestionPostState> {
-  QuestionRepo questionRepo;
-  QuestionPostBloc(this.questionRepo) : super(QuestionPostInitial()) {
+  final questionRepo = getIt.get<QuestionRepo>();
+  QuestionPostBloc() : super(QuestionPostInitial()) {
     on<QuestionPostEvent>((event, emit) async {
 
       if (event is QuestionPost) {

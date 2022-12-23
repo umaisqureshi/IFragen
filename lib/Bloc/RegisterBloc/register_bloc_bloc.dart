@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:ifragen/DependencyProvider/dependencyProvider.dart';
 import 'package:ifragen/Models/userRegisterModel.dart';
 
 import '../../../Repo/userRepo.dart';
@@ -9,9 +10,9 @@ part 'register_bloc_event.dart';
 part 'register_bloc_state.dart';
 
 class RegisterBloc extends Bloc<RegisterBlocEvent, RegisterBlocState> {
-  UserRepo userRepo;
+  final userRepo = getIt.get<UserRepo>();
 
-  RegisterBloc(this.userRepo) : super(UserCreatingState()) {
+  RegisterBloc() : super(UserCreatingState()) {
     on<RegisterBlocEvent>((event, emit) async {
       if (event is UserCreateEvent) {
         if (event.email.isEmpty || event.password.isEmpty) {

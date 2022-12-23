@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:async';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ifragen/Repo/allCommunityRepo.dart';
+import 'package:ifragen/Repo/userRepo.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../Bloc/CommunityBloc/community_bloc.dart';
 import '../../../../Utilis/inputdecoration.dart';
@@ -37,8 +38,7 @@ class _CreateCommunityScreen extends State<CreateCommunityScreen> {
     Size size = MediaQuery.of(context).size;
 
     return BlocProvider(
-      create: (context) =>
-          CommunityBloc(RepositoryProvider.of<CommunityRepo>(context)),
+      create: (context) => CommunityBloc(),
       child: Scaffold(
         backgroundColor: Colors.white,
         // backgroundColor: Theme.of(context).primaryColor,
