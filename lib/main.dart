@@ -61,6 +61,5 @@ class _MyAppState extends State<MyApp> {
               ColorScheme.fromSwatch().copyWith(secondary: Colors.white)),
       home: _isSignedIn ? const MainHome() : const SplashScreen(),
     );
-    //  home: const CreateCommunity());
   }
 }

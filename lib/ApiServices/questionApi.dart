@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:http/http.dart';
 import 'package:ifragen/Repo/questionRepo.dart';
-
 import '../Exception/customExceptions.dart';
 
-class QuestionApi extends QuestionRepo{
+class QuestionApi extends QuestionRepo {
   @override
   Future postQuestion(String category, String question) async {
     try {
