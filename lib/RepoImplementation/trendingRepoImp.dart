@@ -2,15 +2,20 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart';
-import 'package:ifragen/Repo/questionRepo.dart';
 import '../Exception/customExceptions.dart';
+import '../Helper/helper.dart';
+import '../Repo/trendingQuestionsRepo.dart';
 
-class QuestionApi extends QuestionRepo {
+class TrendingRepoImp extends TrendingQuestionRepo{
   @override
-  Future postQuestion(String category, String question) async {
+  Future trendingQuestion() async {
+    var token = await HelperClass.getUserAccessToken();
     try {
-      Response response = await post(Uri.parse(""),
-          body: {'category': category, 'question': question});
+      Response response = await get(Uri.parse(""), headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200 || response.statusCode == 201) {
         final result = jsonDecode(response.body);
 

@@ -10,7 +10,7 @@ import '../Models/getAccesstokenModel.dart';
 import '../Models/userLoginModel.dart';
 import '../Models/userRegisterModel.dart';
 
-class UserApi extends UserRepo {
+class UserRepoImp extends UserRepo {
   @override
   Future<UserLoginModel> getUser(String email, String password) async {
     try {

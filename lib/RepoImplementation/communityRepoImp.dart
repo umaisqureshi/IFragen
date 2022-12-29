@@ -9,7 +9,7 @@ import '../Helper/helper.dart';
 import '../Models/createCommunityModel.dart';
 import '../Models/getCommunitiesModel.dart';
 
-class CommunityApi extends CommunityRepo {
+class CommunityRepoImp extends CommunityRepo {
   
   @override
   Future<CreateCommunityModel> createCommunities(
